@@ -1,0 +1,694 @@
+.circular-carousel {
+  --cc-fade: #000000;
+  --cc-radius: 12px;
+  --cc-inner: 0.4;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: none;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.circular-carousel[data-axis='x'] {
+  touch-action: pan-x;
+}
+
+.circular-carousel[data-draggable] {
+  cursor: grab;
+}
+
+.circular-carousel[data-dragging] {
+  cursor: grabbing;
+}
+
+.circular-carousel:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(128, 128, 140, 0.55);
+}
+
+.circular-carousel__view {
+  position: absolute;
+  inset: 0;
+}
+
+.circular-carousel[data-shape='wheel'] .circular-carousel__view {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000000 18%, #000000 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000000 18%, #000000 82%, transparent);
+}
+
+.circular-carousel[data-shape='panorama'] .circular-carousel__view {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000000 12%, #000000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000000 12%, #000000 88%, transparent);
+}
+
+.circular-carousel__stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.circular-carousel[data-ready] .circular-carousel__stage {
+  opacity: 1;
+}
+
+.circular-carousel__camera,
+.circular-carousel__ring,
+.circular-carousel__card {
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.circular-carousel__camera {
+  position: relative;
+}
+
+.circular-carousel__ring,
+.circular-carousel__card {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.circular-carousel__tile {
+  position: absolute;
+  outline: 1px solid transparent;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.circular-carousel__frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.circular-carousel__photo {
+  position: absolute;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Cartes texte */
+
+/* Cartes texte */
+.circular-carousel__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--navy);
+  color: var(--cream);
+  text-align: left;
+}
+/* Carte 1 : bleu marine */
+.circular-carousel__card:nth-child(1) .circular-carousel__content {
+  background: #142B3B;
+}
+/* Carte 2 : bleu */
+.circular-carousel__card:nth-child(2) .circular-carousel__content {
+  background: #294C60;
+}
+/* Carte 3 : bleu clair */
+.circular-carousel__card:nth-child(3) .circular-carousel__content {
+  background: #A6CFD5;
+  color: #142B3B;
+}
+
+/* Carte 4 : gris bleuté */
+.circular-carousel__card:nth-child(4) .circular-carousel__content {
+  background: #8296A0;
+  color: #142B3B;
+}
+
+
+/* Cartes texte */
+
+/* Cartes texte */
+.circular-carousel__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: #142B3B;
+  color: #F8F6F1;
+  text-align: left;
+}
+
+/* Fonds différents, même palette */
+.circular-carousel__card:nth-child(1) .circular-carousel__content {
+  background: #142B3B;
+}
+
+.circular-carousel__card:nth-child(2) .circular-carousel__content {
+  background: #294C60;
+}
+
+.circular-carousel__card:nth-child(3) .circular-carousel__content {
+  background: #294C60;
+}
+
+.circular-carousel__card:nth-child(4) .circular-carousel__content {
+  background: #142B3B;
+}
+
+/* Texte identique sur toutes les cartes */
+.circular-carousel__card-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #F8F6F1;
+}
+
+.circular-carousel__card-subtitle {
+  font-size: 13px;
+  color: #A6CFD5;
+  opacity: 1;
+}
+
+.circular-carousel__card-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #F8F6F1;
+}
+
+
+.circular-carousel__photo--leaving {
+  animation: circular-carousel-leave 700ms cubic-bezier(0.33, 1, 0.68, 1) both;
+}
+
+.circular-carousel__shade,
+.circular-carousel__inner {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.circular-carousel__shade {
+  background: var(--cc-fade);
+  opacity: var(--cc-depth, 0);
+}
+
+.circular-carousel__inner {
+  background: #000000;
+  opacity: var(--cc-inner);
+}
+
+.circular-carousel__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  color: inherit;
+  text-align: center;
+  pointer-events: none;
+  animation: circular-carousel-reveal 900ms ease both;
+}
+
+.circular-carousel__title {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  animation: circular-carousel-title 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.circular-carousel__subtitle {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.circular-carousel__count {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.circular-carousel__slash {
+  opacity: 0.6;
+}
+
+.circular-carousel__digits {
+  display: inline-flex;
+}
+
+.circular-carousel__digit {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.circular-carousel__reel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.circular-carousel__reel > span {
+  height: 1em;
+}
+
+.circular-carousel__live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@keyframes circular-carousel-title {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes circular-carousel-leave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes circular-carousel-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circular-carousel__stage,
+  .circular-carousel__reel {
+    transition: none;
+  }
+
+  .circular-carousel__caption,
+  .circular-carousel__title {
+    animation: none;
+  }
+}
+
+/* ==============================
+   CARTE OUVERTE : STYLE ÉDITORIAL
+   ============================== */
+
+.circular-carousel__photo.is-revealed {
+  background-color: #F3EDE2 !important;
+  background-image: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  overflow: hidden;
+}
+
+/* Contenu de la carte */
+.circular-carousel__photo.is-revealed .circular-carousel__card-details {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  text-align: left;
+  color: #39483A;
+  font-family: Georgia, 'Times New Roman', serif;
+  padding: 4px;
+}
+
+/* Titre principal */
+.circular-carousel__photo.is-revealed .circular-carousel__card-title {
+  color: #304832 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin: 0 0 14px;
+}
+
+/* Sous-titre */
+.circular-carousel__photo.is-revealed .circular-carousel__card-subtitle {
+  display: block;
+  color: #A66B48 !important;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* Texte et liste */
+.circular-carousel__photo.is-revealed .circular-carousel__card-text {
+  color: #465448 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Présentation des lignes sous forme de liste */
+.circular-carousel__photo.is-revealed ul.circular-carousel__card-text {
+  list-style: none;
+}
+
+.circular-carousel__photo.is-revealed .circular-carousel__card-text li {
+  color: #465448 !important;
+  position: relative;
+  padding: 9px 0 9px 18px;
+  border-bottom: 1px solid rgba(48, 72, 50, 0.13);
+}
+
+.circular-carousel__photo.is-revealed .circular-carousel__card-text li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  color: #A66B48;
+  font-size: 1rem;
+}
+
+/* Pas de voile sombre sur la carte ouverte */
+.circular-carousel__frame:has(.circular-carousel__photo.is-revealed)
+.circular-carousel__shade {
+  display: none;
+}
+
+/* Transition douce */
+.circular-carousel__photo {
+  transition: background-color 0.3s ease;
+}
+
+/* Texte masqué au départ */
+.circular-carousel__photo .circular-carousel__card-details {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+/* Au survol : la photo disparaît */
+.circular-carousel__photo:hover {
+  background-image: none !important;
+  background-color: #F3EDE2 !important;
+}
+
+/* Au survol : le texte apparaît */
+.circular-carousel__photo:hover .circular-carousel__card-details {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Style du titre */
+.circular-carousel__photo:hover .circular-carousel__card-title {
+  color: #304832 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+/* Style du sous-titre */
+.circular-carousel__photo:hover .circular-carousel__card-subtitle {
+  display: block;
+  color: #A66B48 !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+/* Style du texte */
+.circular-carousel__photo:hover .circular-carousel__card-text {
+  color: #465448 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Style des listes */
+.circular-carousel__photo:hover .circular-carousel__card-text li {
+  color: #465448 !important;
+  margin-bottom: 8px;
+}
+
+/* Retirer le voile sombre sur la carte survolée */
+.circular-carousel__frame:has(.circular-carousel__photo:hover)
+.circular-carousel__shade {
+  display: none;
+}
+
+/* Afficher le texte lorsque la carte est survolée */
+.circular-carousel__photo.is-hovered .circular-carousel__card-details {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  color: #142B3B !important;
+}
+
+/* Titre */
+.circular-carousel__photo.is-hovered .circular-carousel__card-title {
+  color: #142B3B !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+/* Sous-titre */
+.circular-carousel__photo.is-hovered .circular-carousel__card-subtitle {
+  display: block;
+  color: #294C60 !important;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+/* Texte et listes */
+.circular-carousel__photo.is-hovered .circular-carousel__card-text,
+.circular-carousel__photo.is-hovered .circular-carousel__card-text li {
+  color: #475F6B !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   STYLE ÉDITORIAL DES CARTES AU SURVOL
+   ========================================== */
+
+.circular-carousel__photo.is-hovered {
+  background-color: #F3EDE2 !important;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+/* Contenu principal */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-details {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 2px;
+  color: #142B3B !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: left;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+
+  animation: journey-appear 0.35s ease both;
+}
+
+/* Petite signature au-dessus du titre */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-details::before {
+  content: 'A JOURNEY IN IT';
+  display: block;
+  margin-bottom: 17px;
+
+  color: #8296A0;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+/* Titre principal */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-title {
+  margin: 0;
+  color: #142B3B !important;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  overflow-wrap: break-word;
+}
+
+/* Trait décoratif sous le titre */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-title::after {
+  content: '';
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-top: 14px;
+
+  background-color: #A66B48;
+}
+
+/* Sous-titre */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-subtitle {
+  display: block;
+  margin: 14px 0 17px;
+
+  color: #475F6B !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Liste et paragraphe */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-text {
+  margin: 0;
+  padding: 0;
+
+  color: #394D59 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+/* Liste sans puces classiques */
+.circular-carousel__photo.is-hovered
+ul.circular-carousel__card-text {
+  list-style: none;
+}
+
+/* Chaque élément de la liste */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-text li {
+  position: relative;
+  margin: 0;
+  padding: 9px 0 9px 16px;
+
+  color: #394D59 !important;
+  border-bottom: 1px solid rgba(20, 43, 59, 0.10);
+}
+
+/* Petits marqueurs élégants */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-text li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  top: 9px;
+
+  color: #A66B48;
+  font-weight: 700;
+}
+
+/* Apparition douce du contenu */
+@keyframes journey-appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Barre de défilement discrète si le texte est long */
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-details::-webkit-scrollbar {
+  width: 3px;
+}
+
+.circular-carousel__photo.is-hovered
+.circular-carousel__card-details::-webkit-scrollbar-thumb {
+  background-color: #A6B3B4;
+  border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circular-carousel__photo.is-hovered
+  .circular-carousel__card-details {
+    animation: none;
+  }
+}
+
+/* Fond blanc uniquement au survol des cartes Journey */
+.circular-carousel__photo.is-hovered {
+    background: #FFFFFF !important;
+    background-image: none !important;
+    color: #142B3B !important;
+}
+
+/* Masquer l'ombre qui pourrait assombrir le fond */
+.circular-carousel__card:hover .circular-carousel__shade {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Texte lisible sur le fond blanc */
+.circular-carousel__photo.is-hovered .circular-carousel__card-title,
+.circular-carousel__photo.is-hovered .circular-carousel__card-subtitle,
+.circular-carousel__photo.is-hovered .circular-carousel__card-text {
+    color: #142B3B !important;
+}

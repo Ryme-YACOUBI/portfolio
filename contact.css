@@ -1,0 +1,177 @@
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #F8F6F1;
+    color: #315C6B;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    margin: 30px auto 40px;
+    max-width: 650px;
+}
+
+header h1 {
+    color: #244653;
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+    font-weight: normal;
+}
+
+header h2 {
+    color: #7899A5;
+    font-size: 1.05rem;
+    font-weight: normal;
+}
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #FFFFFF;
+    border: 1px solid #DCE5E7;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(20, 43, 59, 0.08);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+fieldset div {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #142b3b;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: #F4F7F7;
+    color: #315C6B;
+    border-color: #D0DDE0;
+    border-radius: 7px;
+    outline: none;
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background-color 0.25s ease;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9a9f9f;
+}
+
+/* Focus effect */
+
+input:focus,
+textarea:focus {
+    border-color: #7899A5;
+    box-shadow: 0 0 0 3px rgba(120, 153, 165, 0.18);
+    box-shadow: 0 0 0 3px rgba(41, 76, 96, 0.12);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    margin-top: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #315C6B;
+    border-color: #315C6B;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+button:hover {
+    background-color: #142b3b;
+    box-shadow: 0 5px 15px rgba(20, 43, 59, 0.15);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Keyboard accessibility */
+
+button:focus-visible {
+    outline: 3px solid #a6b9c3;
+    outline-offset: 4px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    header {
+        margin: 20px auto 30px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 0.95rem;
+    }
+
+    form {
+        padding: 25px 20px;
+    }
+}

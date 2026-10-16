@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Ryme Yacoubi, IT engineering student: projects, skills, journey and experiences.">
     <link rel="stylesheet" href="index.css">
+    
     <title>Portfolio - Ryme Yacoubi</title>
 </head>
 <body>
@@ -15,11 +16,11 @@
             <ul>
                 <li><a class="active" href="index.html" aria-current="page">Home</a></li>
                 <li><a href="pages/about.html">About</a></li>
-                <li><a href="pages/journey.html">Journey</a></li>
+                <li><a href="journey.html">Journey</a></li>
                 <li><a href="pages/projects.html">Projects</a></li>
                 <li><a href="pages/skills.html">Skills</a></li>
                 <li><a href="pages/experiences.html">Experiences</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -45,90 +46,178 @@
                     <img src="ryme.png" alt="Photo of Ryme Yacoubi" width="220" height="270">
                 </div>
             </div>
+        </section>
 
-            <div class="skills">
-                <h2>Key skills</h2>
-                <ul>
+        <section id="about" class="about-section">
+            <h2 class="section_title">About me</h2>
+                <p class="section-intro">
+                    To truly know someone, you need to understand their interests,
+                    personality, strengths, and flaws. Talking about ourselves is easy,
+                    but facing our imperfections takes honesty. After all, we are human,
+                    and we often find it easier to judge others than to question ourselves.
+                </p>
+            <div id="about-me-cards" class="cards-grid"></div>
+        </section>
+
+        <section class="journey-section" id="journey">
+            <h2 class="section_title">My Journey</h2>
+                <p class="section-intro">
+                    Every experience has contributed to my growth, from my first
+                    discoveries in technology to my engineering studies and professional
+                    experiences. This journey reflects how I have developed my skills,
+                    explored my interests, and shaped my goals for the future.
+                    <br><br>
+                    <b>Hover over the cards to discover the real experiences behind my journey.</b>
+                </p>
+            <div id="carousel_cards"></div>
+        </section>
+
+
+<section class="projects-section" id="projects">
+    <h2 class="section_title">My Projects</h2>
+
+    <p class="section-intro">
+        Explore a selection of projects that reflect my journey in IT
+        engineering, from developing practical applications and solving
+        technical problems to experimenting with different technologies.
+        Each project highlights the skills I have acquired, the challenges
+        I have explored, and my continuous effort to learn and improve.
+    </p>
+
+    <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card">
+            <div class="project-number">01</div>
+
+            <div class="project-content">
+                <p class="project-category">Web Development</p>
+
+                <h3>Nearshore Management Platform</h3>
+
+                <p class="project-description">
+                    A platform designed to centralize staffing needs,
+                    organize resource allocation, and facilitate the
+                    monitoring of IT profiles through KPI dashboards.
+                </p>
+
+                <ul class="project-technologies">
                     <li>HTML</li>
                     <li>CSS</li>
                     <li>JavaScript</li>
-                    <li>Git &amp; GitHub</li>
-                    <li>Python</li>
-                    <li>LaTeX</li>
+                    <li>Django</li>
                 </ul>
-                <a href="pages/skills.html">See all my skills</a>
-            </div>
 
-            <h2 class="section_title">Featured projects</h2>
-
-            <div class="card">
-                <h3>Portfolio website</h3>
-                <p>
-                    My first multi-page website, built with HTML and CSS and published online.
-                    <span>HTML · CSS · GitHub Pages</span>
+                <p class="project-role">
+                    <strong>My contribution:</strong>
+                    Frontend development and dashboard presentation.
                 </p>
             </div>
 
-            <div class="card">
-                <h3>Internship report</h3>
-                <p>
-                    A structured report written in LaTeX with a custom visual identity.
-                    <span>LaTeX</span>
+            <a class="project-link"
+               href="pages/projects.html"
+               aria-label="Learn more about the Nearshore Management Platform">
+                Explore project <span aria-hidden="true">↗</span>
+            </a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+            <div class="project-number">02</div>
+
+            <div class="project-content">
+                <p class="project-category">Programming</p>
+
+                <h3>Programming &amp; Problem Solving</h3>
+
+                <p class="project-description">
+                    A collection of programming exercises and algorithmic
+                    challenges focused on logical reasoning, structured
+                    problem-solving, and writing clear, efficient code.
+                </p>
+
+                <ul class="project-technologies">
+                    <li>C</li>
+                    <li>Algorithms</li>
+                    <li>Problem Solving</li>
+                </ul>
+
+                <p class="project-role">
+                    <strong>Focus:</strong>
+                    Developing programming fundamentals and analytical thinking.
                 </p>
             </div>
 
-            <div class="card">
-                <h3>Frontend and backend link</h3>
-                <p>
-                    An interface connected to a REST API to manage and display data.
-                    <span>JavaScript · Django REST Framework</span>
+            <a class="project-link"
+               href="pages/projects.html"
+               aria-label="Learn more about programming projects">
+                Explore project <span aria-hidden="true">↗</span>
+            </a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+            <div class="project-number">03</div>
+
+            <div class="project-content">
+                <p class="project-category">Personal Projects</p>
+
+                <h3>Personal Portfolio</h3>
+
+                <p class="project-description">
+                    A personal website presenting my background, academic
+                    journey, projects, and skills through a responsive
+                    interface designed to reflect my identity.
+                </p>
+
+                <ul class="project-technologies">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                </ul>
+
+                <p class="project-role">
+                    <strong>Goal:</strong>
+                    Building a professional online presence while improving
+                    my frontend development skills.
                 </p>
             </div>
 
-            <p class="more"><a href="pages/projects.html">See all projects</a></p>
+            <a class="project-link"
+               href="https://github.com/Ryme-YACOUBI/portfolio"
+               target="_blank"
+               rel="noopener noreferrer">
+                View on GitHub <span aria-hidden="true">↗</span>
+            </a>
+        </article>
 
-            <h2 class="section_title">A bit more about me</h2>
+    </div>
+</section>
 
-            <div class="card">
-                <h3>A little about me</h3>
-                <p>
-                    I’m passionate about fashion, alternative, indie pop and rock music.
-                    I also enjoy writing poetry and philosophical thoughts.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Currently</h3>
-                <p>
-                    Currently focused on learning, growing, and becoming a better version
-                    of myself, both personally and professionally.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Random fact</h3>
-                <p>
-                    I love having deep conversations with people, spending time with older
-                    generations, and playing with little kids.
-                </p>
-            </div>
-
-            <div class="contact">
-                <h2>Let’s work together</h2>
-                <p>Looking for an intern or a teammate? Send me a message.</p>
-                <a href="pages/contact.html">Contact me</a>
-            </div>
+        <div class="contact">
+            <h2>Let’s work together</h2>
+            <p>Looking for an intern or a teammate? Send me a message.</p>
+            <a href="contact_me.html">Contact me</a>
+            <a href="https://github.com/" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+        </div>
 
         </section>
     </main>
 
     <footer>
-        <ul>
-            <li><a href="https://github.com/" rel="noopener">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-            <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
+        
+
+            
+       
         <p>© 2026 Ryme Yacoubi. Photos and fonts: credits on the About page.</p>
     </footer>
+    <script type="module" src="/src/connexion_journey.jsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/connexion_projets.jsx"></script>
+    <script src="index.js"></script>
+
 </body>
 </html>
