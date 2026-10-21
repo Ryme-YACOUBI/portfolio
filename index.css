@@ -432,25 +432,90 @@ footer p {
 /* =========================
    VARIABLES
 ========================= */
-
+/* Couleurs du mode clair */
 :root {
     --page-width: 1200px;
+
+    /* Couleurs de ton identité visuelle */
     --navy: #142B3B;
     --blue: #294C60;
     --cream: #F0F7FA;
     --mist: #D5E0E2;
     --steel: #8296A0;
     --light-blue: #A6CFD5;
+
+    /* Couleurs des éléments selon le thème */
+    --page-bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --text: #142B3B;
+    --muted-text: #294C60;
+
     font-family: Georgia, serif;
 }
 
+.dark_mode {
+    --page-bg: #0E1A24;
+    --surface: #16262F;
+    --surface-alt: #1D3340;
+    --text: #E6EEF2;
+    --muted-text: #A9BDC8;
+    --accent: #7FB8C4;
+    --border: #2C4A5A;
+
+    /* on redéfinit les variables de ta palette claire */
+    --navy: #E6EEF2;
+    --blue: #7FB8C4;
+    --cream: #1D3340;
+    --mist: #2C4A5A;
+    --steel: #6F8A98;
+    --light-blue: #7FB8C4;
+}
+
+/* Cartes qui étaient en blanc fixe */
+.dark_mode .main_card,
+.dark_mode .skills,
+.dark_mode .card,
+.dark_mode .section-intro,
+.dark_mode .project-card,
+.dark_mode .skill-card,
+.dark_mode .project-item {
+    background-color: var(--surface);
+    border-color: var(--border);
+}
+
+/* Header et contact restent sombres, mais le texte doit rester clair */
+.dark_mode header {
+    background-color: #142B3B;
+    border-bottom-color: #2C4A5A;
+}
+
+.dark_mode .contact {
+    background-color: #142B3B;
+    border-color: #2C4A5A;
+}
+
+.dark_mode .contact a {
+    background-color: #E6EEF2;
+    color: #0E1A24;
+}
+
+.dark_mode .project-card h3,
+.dark_mode .skill-card h3 {
+    color: var(--text);
+}
+
+.dark_mode .project-description,
+.dark_mode .project-role,
+.dark_mode .section-intro {
+    color: var(--muted-text);
+}
 /* =========================
    BASE
 ========================= */
 
 body {
-    background-color: #FFFFFF;
-    color: var(--navy);
+    background-color: var(--page-bg);
+    color: var(--text);
     font-family: Georgia, serif;
     line-height: 1.6;
     margin: 0;
@@ -524,17 +589,88 @@ header {
     border-bottom: 4px solid var(--blue);
 }
 
+
+
+/* Bouton du thème : soleil / lune */
+#btn_lum {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid var(--steel);
+    border-radius: 50%;
+    background-color: var(--navy);
+    color: var(--cream);
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+/* Bouton de langue : FR / EN */
+#btn_lang {
+    min-width: 44px;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--steel);
+    border-radius: 20px;
+    background-color: var(--navy);
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+/* Effet au survol */
+#btn_lum:hover,
+#btn_lang:hover {
+    background-color: var(--blue);
+    border-color: var(--light-blue);
+    transform: translateY(-2px);
+}
+
+/* Accessibilité au clavier */
+#btn_lum:focus-visible,
+#btn_lang:focus-visible {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 3px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 8px 20px;
+    gap: 8px 16px;
     list-style: none;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     margin: 0;
-    padding: 16px 24px;
+    padding: 16px 12px;
     box-sizing: border-box;
 }
+
+.nav_controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    margin-right: 24px;
+}
+
 
 nav a {
     color: var(--cream);
@@ -1339,7 +1475,7 @@ footer a {
 .projects-section {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 0;
     margin-top: 5px;
     width: 100%;
     box-sizing: border-box;
@@ -1522,7 +1658,6 @@ footer a {
         transform: none;
     }
 }
-```css
 /* =========================
    PROJECTS SECTION
 ========================= */
@@ -1712,4 +1847,758 @@ footer a {
     .project-link:hover span {
         transform: none;
     }
+}
+/* Align the content inside all project cards */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.project-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    /* Same vertical positions in every card */
+    grid-template-rows:
+        3rem       /* Category */
+        3.8rem     /* Project title */
+        9.5rem     /* Description */
+        4rem       /* Context */
+        5.5rem     /* Objective */
+        5.5rem     /* Skills developed */
+        auto;      /* Technology bubbles */
+
+    gap: 1rem;
+    flex: 1;
+    align-content: start;
+}
+
+/* Reset margins so they do not disturb the alignment */
+.project-content > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-width: 0;
+}
+
+.project-content > .project-technologies {
+    align-self: start;
+}
+
+/* Keep all technology bubbles together */
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 0.5rem;
+}
+
+/* On narrow screens, let content adapt naturally */
+@media (max-width: 768px) {
+    .project-content {
+        grid-template-rows: none;
+    }
+}
+
+/* ========================================
+   SKILLS PAGE
+======================================== */
+
+/* Skills layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 4rem;
+    row-gap: 2.5rem;
+}
+
+/* Each skill category */
+.skill-category {
+    padding-top: 1.2rem;
+    border-top: 1px solid #8296A0;
+}
+
+.skill-category h2 {
+    margin: 0 0 1rem;
+    color: #142B3B;
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.skill-category ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.skill-category li {
+    padding: 0.45rem 0;
+    color: #294C60;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   EXPERIENCES PAGE
+======================================== */
+
+.experiences-list {
+    margin-top: 2rem;
+}
+
+/* Each experience is presented as a row */
+.experience-item {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    column-gap: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid #D5E0E2;
+}
+
+/* Date column */
+.experience-date {
+    margin: 0;
+    padding-top: 0.25rem;
+    color: #8296A0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Experience details */
+.experience-content h2 {
+    margin: 0 0 0.5rem;
+    color: #142B3B;
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.experience-role {
+    margin: 0 0 1rem;
+    color: #8296A0;
+    font-size: 0.9rem;
+}
+
+.experience-content > p:not(.experience-role) {
+    max-width: 680px;
+    margin: 0;
+    color: #294C60;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Related project link */
+.experience-content a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #142B3B;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.experience-content a:hover {
+    color: #8296A0;
+}
+
+.experience-content a:focus-visible {
+    outline: 2px solid #294C60;
+    outline-offset: 4px;
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 700px) {
+    .skills-section,
+    .experiences-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        row-gap: 0.75rem;
+        padding: 1.5rem 0;
+    }
+
+    .experience-date {
+        font-size: 0.85rem;
+    }
+
+    .experience-content h2 {
+        font-size: 1.25rem;
+    }
+}
+/* =========================
+   SECTION TITLES & INTRODUCTIONS
+========================= */
+
+:root {
+    --title-intro-spacing: 20px;
+    --intro-content-spacing: 30px;
+}
+
+/* All section titles */
+.section_title {
+    margin: 0 0 var(--title-intro-spacing);
+    padding-left: 14px;
+    border-left: 6px solid var(--blue);
+
+    color: var(--navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* All section introductions */
+.section-intro {
+    width: 100%;
+    margin: 0 0 var(--intro-content-spacing);
+    padding: 24px 30px;
+    box-sizing: border-box;
+
+    background-color: #FFFFFF;
+    border: 1px solid var(--blue);
+    border-radius: 12px;
+
+    color: var(--blue);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   SKILLS — MINIMALIST CARDS
+========================= */
+
+.skills-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.skill-card {
+    min-width: 0;
+    padding: 24px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--blue);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.skill-card h3 {
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--mist);
+
+    color: var(--navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Reuse the same bubbles as Projects */
+.skill-card .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 8px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skill-card .project-technologies li {
+    padding: 5px 10px;
+    background-color: var(--cream);
+    border: 1px solid var(--mist);
+    border-radius: 20px;
+
+    color: var(--navy);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skill-card {
+        padding: 20px;
+    }
+}
+.about-section,
+.journey-section,
+.projects-section,
+.skills-section,
+.experiences-section {
+    margin-top: 60px;
+    padding-top: 0;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Technical Skills takes the full width */
+.skill-card--technical {
+    grid-column: 1 / -1;
+}
+
+/* Responsive layout */
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skill-card--technical {
+        grid-column: auto;
+    }
+}
+/* =========================
+   LET'S WORK TOGETHER
+========================= */
+
+.contact {
+    background-color: var(--navy);
+    color: #FFFFFF;
+    border: 1px solid var(--navy);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+}
+
+.contact h2,
+.contact p {
+    color: #FFFFFF;
+}
+
+.contact a {
+    display: inline-block;
+    color: var(--navy);
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    padding: 8px 18px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    background-color: var(--mist);
+    border-color: var(--mist);
+}
+
+@media (max-width: 600px) {
+    .contact {
+        padding: 30px 20px;
+    }
+}
+/* Reserve the same space for technology bubbles in every project */
+.project-content > .project-technologies {
+    min-height: 5rem;
+    align-content: flex-start;
+    box-sizing: border-box;
+}
+html.dark_mode,
+body.dark_mode,
+.dark_mode body {
+    background-color: #0E1A24 !important;
+    color: #E6EEF2 !important;
+}
+/* ===== Mode sombre : retouches ===== */
+
+/* Bouton "View my projects" (et les deux autres boutons du hero) */
+.dark_mode .hero_links a:first-child {
+    background-color: #3E7A8F;
+    border-color: #3E7A8F;
+    color: #FFFFFF;
+}
+
+.dark_mode .hero_links a:first-child:hover {
+    background-color: #5A9BB0;
+    border-color: #5A9BB0;
+    color: #FFFFFF;
+}
+
+.dark_mode .hero_links a:not(:first-child) {
+    background-color: transparent;
+    border-color: #7FB8C4;
+    color: #FFFFFF;
+}
+
+.dark_mode .hero_links a:not(:first-child):hover {
+    background-color: #1D3340;
+    color: #FFFFFF;
+}
+
+/* Phrases d'introduction en blanc */
+.dark_mode .section-intro,
+.dark_mode .section-intro p,
+.dark_mode .section-intro b {
+    color: #FFFFFF;
+}
+
+/* Partie Experiences */
+.dark_mode .experience-content h2,
+.dark_mode .experience-content a {
+    color: #FFFFFF;
+}
+
+.dark_mode .experience-role,
+.dark_mode .experience-content > p:not(.experience-role) {
+    color: #F2F6F8;
+}
+
+.dark_mode .experience-date {
+    color: #C3D3DB;
+}
+
+.dark_mode .experience-content a:hover {
+    color: #7FB8C4;
+}
+
+/* "Let's work together" plus clair */
+.dark_mode .contact {
+    background-color: #24465A;
+    border-color: #3E6A82;
+}
+
+.dark_mode .contact h2,
+.dark_mode .contact p {
+    color: #FFFFFF;
+}
+
+/* Menu plus clair */
+.dark_mode header {
+    background-color: #1F4258;
+    border-bottom-color: #7FB8C4;
+}
+
+.dark_mode header nav a {
+    color: #FFFFFF;
+}
+
+.dark_mode nav a:hover,
+.dark_mode nav a.active {
+    color: #A6CFD5;
+    border-bottom-color: #A6CFD5;
+}
+
+.dark_mode #btn_lum,
+.dark_mode #btn_lang {
+    background-color: #1F4258;
+    color: #FFFFFF;
+    border-color: #7FB8C4;
+}
+/* ===== Mode sombre : menu plus clair et plus coloré ===== */
+
+.dark_mode header {
+    background: linear-gradient(90deg, #2F6A86 0%, #3E86A3 50%, #2F6A86 100%);
+    border-bottom: 3px solid #CFE8EE;
+}
+
+/* Liens du menu */
+.dark_mode header nav a {
+    color: #FFFFFF;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+/* Survol : pastille claire */
+.dark_mode header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+    border-bottom-color: #CFE8EE;
+}
+
+/* Page active : pastille bien visible */
+.dark_mode header nav a.active {
+    background-color: #CFE8EE;
+    color: #14303F;
+    border-bottom-color: #CFE8EE;
+}
+
+/* Boutons langue et thème */
+.dark_mode #btn_lum,
+.dark_mode #btn_lang {
+    background-color: #CFE8EE;
+    color: #14303F;
+    border-color: #FFFFFF;
+}
+
+.dark_mode #btn_lum:hover,
+.dark_mode #btn_lang:hover {
+    background-color: #FFFFFF;
+    border-color: #CFE8EE;
+}
+
+
+/* Variation de couleurs pour ne pas avoir des bulles toutes identiques */
+.dark_mode .project-technologies li:nth-child(4n+2) {
+    background-color: #F3DBB9;   /* sable */
+    border-color: #F8E8D0;
+}
+
+.dark_mode .project-technologies li:nth-child(4n+3) {
+    background-color: #B8D8B0;   /* vert doux */
+    border-color: #D2E8CC;
+}
+
+.dark_mode .project-technologies li:nth-child(4n+4) {
+    background-color: #C9BDE8;   /* lavande */
+    border-color: #DDD4F2;
+}
+
+.dark_mode .project-technologies li:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== Mode sombre : "Let's work together" ===== */
+
+.dark_mode .contact a {
+    background-color: #CFE8EE;
+    border-color: #CFE8EE;
+    color: #14303F;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Survol : sable chaud, texte foncé pour rester lisible */
+.dark_mode .contact a:hover {
+    background-color: #F3DBB9;
+    border-color: #F3DBB9;
+    color: #14303F;
+    transform: translateY(-2px);
+}
+/* ===== Mode sombre : bulles uniformes, touche de blanc ===== */
+
+.dark_mode .project-technologies li {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #FFFFFF;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.dark_mode .project-technologies li:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: #FFFFFF;
+}
+
+/* ===== Mode sombre : "Let's work together" ===== */
+
+.dark_mode .contact a {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #FFFFFF;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Survol : fond blanc, texte foncé */
+.dark_mode .contact a:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #14303F;
+}
+
+/* =================================
+   MODE NUIT — MENU
+================================= */
+
+body.dark_mode header {
+    background: #244653;
+    border-bottom: 3px solid #A6CFD5;
+}
+
+body.dark_mode header nav a {
+    color: #F8F6F1;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    border-radius: 6px;
+}
+
+body.dark_mode header nav a:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.10);
+    border-bottom-color: #A6CFD5;
+}
+
+body.dark_mode header nav a.active {
+    color: #17313D;
+    background-color: #D7E9E8;
+    border-bottom-color: #D7E9E8;
+}
+
+/* Boutons de langue et de thème */
+body.dark_mode #btn_lum,
+body.dark_mode #btn_lang {
+    background-color: #D7E9E8;
+    color: #17313D;
+    border-color: #D7E9E8;
+}
+
+body.dark_mode #btn_lum:hover,
+body.dark_mode #btn_lang:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+
+/* =================================
+   MODE NUIT — BULLES SKILLS / PROJECTS
+================================= */
+
+/* Couleur principale : menthe */
+body.dark_mode .project-card .project-technologies li,
+body.dark_mode .skill-card .project-technologies li {
+    background-color: #D7E9E8;
+    border: 1px solid #B8D5D4;
+    color: #17313D;
+}
+
+/* Alternance de couleurs pastel */
+body.dark_mode .project-card .project-technologies li:nth-child(4n + 2),
+body.dark_mode .skill-card .project-technologies li:nth-child(4n + 2) {
+    background-color: #F3E4CF;
+    border-color: #E6D1B5;
+}
+
+body.dark_mode .project-card .project-technologies li:nth-child(4n + 3),
+body.dark_mode .skill-card .project-technologies li:nth-child(4n + 3) {
+    background-color: #DCD5ED;
+    border-color: #C9BDE0;
+}
+
+body.dark_mode .project-card .project-technologies li:nth-child(4n + 4),
+body.dark_mode .skill-card .project-technologies li:nth-child(4n + 4) {
+    background-color: #E5E9D8;
+    border-color: #D1D9BE;
+}
+
+body.dark_mode .project-card .project-technologies li:hover,
+body.dark_mode .skill-card .project-technologies li:hover {
+    filter: brightness(0.96);
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   MODE NUIT — LET'S WORK TOGETHER
+================================= */
+
+body.dark_mode .contact {
+    background-color: #31576B;
+    border: 1px solid #52798A;
+    border-radius: 12px;
+}
+
+body.dark_mode .contact h2,
+body.dark_mode .contact p {
+    color: #FFFFFF;
+}
+
+/* Boutons GitHub, LinkedIn et autres liens */
+body.dark_mode .contact a {
+    background-color: #FFFFFF;
+    color: #17313D;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+body.dark_mode .contact a:hover {
+    background-color: #D7E9E8;
+    border-color: #D7E9E8;
+    color: #17313D;
+    transform: translateY(-2px);
+}
+/* MODE NUIT — BULLES SKILLS ET PROJECTS */
+body.dark_mode .project-card .project-technologies li,
+body.dark_mode .skill-card .project-technologies li {
+    background-color: #D7E9E8;
+    color: #17313D;
+    border: 1px solid #B8D5D4;
+}
+
+body.dark_mode .project-card .project-technologies li:hover,
+body.dark_mode .skill-card .project-technologies li:hover {
+    background-color: #C5DEDD;
+    color: #17313D;
+    transform: translateY(-2px);
+}
+/* ========================================
+   MODE NUIT — BULLES PROJECTS
+======================================== */
+
+body.dark_mode .project-card .project-technologies li {
+    background-color: #1B3445 !important;
+    color: #E8F1F5 !important;
+    border: 1px solid #42677D !important;
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+body.dark_mode .project-card .project-technologies li:hover {
+    background-color: #294C60 !important;
+    border-color: #A6CFD5 !important;
+    transform: translateY(-2px);
+}
+
+
+/* MODE NUIT — BULLES SKILLS UNIQUEMENT */
+body.dark_mode .skills-section .skill-card .project-technologies li {
+    background-color: #294C60 !important;
+    color: #F8F6F1 !important;
+    border: 1px solid #42677D !important;
+}
+
+body.dark_mode .skills-section .skill-card .project-technologies li:hover {
+    background-color: #42677D !important;
+    border-color: #A6CFD5 !important;
+}
+
+
+body.dark_mode .experience-date {
+    color: #A6CFD5 !important;
+}
+body.dark_mode .experience-item {
+    border-top-color: #42677D !important;
+}
+#btn_lum {
+    cursor: pointer;
+    font-size: 24px;
 }

@@ -70,9 +70,10 @@ const AccordionGallery = ({
   const vertical = orientation === 'vertical';
   const count = items.length;
 
-  const [active, setActive] = useState(
-    Math.min(Math.max(defaultIndex, 0), count - 1)
-  );
+ const [active, setActive] = useState(0);
+ useEffect(() => {
+  setActive(Math.min(Math.max(defaultIndex, 0), items.length - 1));
+}, [items, defaultIndex]);
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
