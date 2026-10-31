@@ -5,7 +5,7 @@ import './AccordionGallery.css';
 
 /*
  * Version "texte" de l'AccordionGallery de React Bits.
- * Chaque carte : { title, description, tags?, link?, color? }
+ * Chaque carte : { title, description | text, subtitle?, image?, tags?, link?, color? }
  */
 const DEFAULT_ITEMS = [
   {
@@ -60,7 +60,8 @@ const AccordionGallery = ({
   ease = 'power3.out',
   tilt = 6,
   trigger = 'hover',
-  className = ''
+  className = '',
+  ariaLabel = 'Sections du CV'
 }) => {
   const rootRef = useRef(null);
   const panelRefs = useRef([]);
@@ -70,10 +71,10 @@ const AccordionGallery = ({
   const vertical = orientation === 'vertical';
   const count = items.length;
 
- const [active, setActive] = useState(0);
- useEffect(() => {
-  setActive(Math.min(Math.max(defaultIndex, 0), items.length - 1));
-}, [items, defaultIndex]);
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    setActive(Math.min(Math.max(defaultIndex, 0), items.length - 1));
+  }, [items, defaultIndex]);
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
@@ -180,7 +181,7 @@ const AccordionGallery = ({
           : `${height}px`
       }}
       role="list"
-      aria-label="Sections du CV"
+      aria-label={ariaLabel}
     >
       {items.map((item, i) => {
         const isActive = i === active;
@@ -194,7 +195,8 @@ const AccordionGallery = ({
               isActive ? ' ag-panel--active' : ''
             }`}
             style={{
-              '--ag-card': item.color || '#2a1a3a',
+              '--ag-card':
+                item.color || (item.image ? '#142B3B' : '#2a1a3a'),
               borderRadius: `${radius}px`
             }}
             href={item.link || undefined}
@@ -206,6 +208,17 @@ const AccordionGallery = ({
             tabIndex={0}
             aria-current={isActive ? 'true' : undefined}
           >
+            {item.image && (
+              <>
+                <span
+                  className="ag-panel__photo"
+                  style={{ backgroundImage: `url("${item.image}")` }}
+                  aria-hidden="true"
+                />
+                <span className="ag-panel__shade" aria-hidden="true" />
+              </>
+            )}
+
             <span className="ag-panel__index">
               {String(i + 1).padStart(2, '0')}
             </span>
@@ -224,8 +237,14 @@ const AccordionGallery = ({
                 {item.title}
               </span>
 
+              {item.subtitle && (
+                <span className="ag-panel__subtitle">
+                  {item.subtitle}
+                </span>
+              )}
+
               <span className="ag-panel__desc">
-                {item.description}
+                {item.text || item.description}
               </span>
 
               {item.tags && item.tags.length > 0 && (

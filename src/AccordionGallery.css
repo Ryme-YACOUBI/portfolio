@@ -42,7 +42,7 @@
     var(--ag-card);
   box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.8);
   filter: saturate(0.55) brightness(0.8);
-  transition: filter 0.45s ease, box-shadow 0.3s ease;
+  transition: filter 0.45s ease, box-shadow 0.4s ease;
   will-change: flex-grow, transform;
   -webkit-tap-highlight-color: transparent;
 }
@@ -50,14 +50,18 @@
 .ag-panel--active {
   filter: none;
 }
-
-.ag-panel:hover,
-.ag-panel:focus-visible {
+.accordion-gallery .ag-panel:hover {
   box-shadow:
-    0 0 0 2px var(--ag-accent),
-    0 14px 34px -18px rgba(0, 0, 0, 0.9);
+    0 0 0 1px color-mix(in srgb, var(--ag-accent) 40%, transparent),
+    0 12px 30px -16px rgba(0, 0, 0, 0.55);
 }
 
+/* Au clavier seulement : un peu plus visible, pour l'accessibilité */
+.accordion-gallery .ag-panel:focus-visible {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--ag-accent) 70%, transparent),
+    0 12px 30px -16px rgba(0, 0, 0, 0.55);
+}
 .ag-panel__index {
     position: absolute;
     top: 12px;
@@ -203,4 +207,206 @@
   .ag-panel__vtitle {
     transition: none;
   }
+}
+/* ===== Cartes avec photo (My Journey) ===== */
+
+/* Permet d'utiliser la largeur de la galerie (cqw) pour fixer la taille des photos */
+.accordion-gallery.journey-gallery {
+  container-type: inline-size;
+}
+
+.journey-gallery .ag-panel {
+  /* largeur exacte d'une carte ouverte */
+  --ag-open: calc(var(--ag-expand, 0.52) * (100cqw - var(--ag-gaps, 0px)));
+  filter: none;            /* le filtre est lourd : on assombrit avec le voile */
+  will-change: transform;
+}
+
+/* Photo à taille FIXE : elle ne se redimensionne plus, donc plus de zoom */
+.ag-panel__photo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--ag-open, 100%);
+  transform: translateX(-50%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Voile carte repliée : le titre vertical reste lisible */
+.ag-panel__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(14, 26, 36, 0.70),
+    rgba(14, 26, 36, 0.25)
+  );
+}
+
+/* Voile carte ouverte : le texte reste lisible (simple fondu, très léger) */
+.ag-panel__shade::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 26, 36, 0.72) 0%,
+    rgba(14, 26, 36, 0.86) 55%,
+    rgba(14, 26, 36, 0.94) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.ag-panel--active .ag-panel__shade::before {
+  opacity: 1;
+}
+
+.ag-panel__subtitle {
+  flex-shrink: 0;
+  color: #A6CFD5;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Texte à largeur fixe : il ne se remet plus en page pendant l'animation */
+.journey-gallery .ag-panel__body {
+  right: auto;
+  width: calc(var(--ag-open) - 48px);
+}
+
+/* Réglages propres à My Journey (titres plus longs) */
+.journey-gallery .ag-panel__title {
+  font-size: clamp(1.2rem, 1.9vw, 1.65rem);
+}
+
+.journey-gallery .ag-panel__desc {
+  font-size: 0.92rem;
+  max-width: 52ch;
+}
+
+.journey-gallery .ag-panel__vtitle {
+  max-height: calc(100% - 70px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+}
+
+.journey-gallery .ag-panel__index,
+.journey-gallery .ag-panel__vtitle {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 640px) {
+  .accordion-gallery.journey-gallery {
+    height: auto !important;
+  }
+
+  .journey-gallery .ag-panel {
+    min-height: 90px;
+  }
+
+  .journey-gallery .ag-panel--active {
+    min-height: 470px;
+  }
+
+  /* En mobile les cartes changent de hauteur : photo fixe, centrée */
+  .ag-panel__photo {
+    top: 50%;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 470px;
+    transform: translateY(-50%);
+  }
+
+  .journey-gallery .ag-panel__body {
+    right: 20px;
+    width: auto;
+  }
+
+  .journey-gallery .ag-panel__vtitle {
+    max-height: none;
+    max-width: calc(100% - 80px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-panel__shade::before {
+    transition: none;
+  }
+}
+/* My Journey : version compacte */
+.journey-gallery .ag-panel__body {
+  top: 52px;
+  bottom: 18px;
+}
+
+.journey-gallery .ag-panel__title {
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+}
+
+.journey-gallery .ag-panel__desc {
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.journey-gallery .ag-panel {
+    top: 0;
+    translate: none;
+    rotate: none;
+}
+.accordion-gallery .ag-panel {
+    translate: none;
+}
+/* Responsive My Journey : mobile et petites tablettes */
+@media (max-width: 1400px) and (hover: none) and (pointer: coarse) {
+
+    #carousel_cards {
+        height: auto !important;
+    }
+
+    .accordion-gallery.journey-gallery {
+        flex-direction: column;
+        height: auto !important;
+        perspective: none;
+    }
+
+    .journey-gallery .ag-panel {
+        flex: none;
+        min-height: 85px;
+        transform: none !important;
+    }
+
+    .journey-gallery .ag-panel--active {
+        min-height: 470px;
+    }
+
+    /* Image */
+    .journey-gallery .ag-panel__photo {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+    }
+
+    /* Contenu */
+    .journey-gallery .ag-panel__body {
+        top: 52px;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: auto;
+        overflow-y: auto;
+    }
+
+    .journey-gallery .ag-panel__vtitle {
+        max-width: calc(100% - 80px);
+        max-height: none;
+    }
 }

@@ -1,13 +1,13 @@
 import { createRoot } from "react-dom/client";
 import { useState, useEffect } from "react";
 
-import CircularCarousel from "./CircularCarousel";
+import AccordionGallery from "./AccordionGallery";
 import { carousel as carousel_en } from "./data_journey";
 import { carousel as carousel_fr } from "./data_journey_fr";
 
 function JourneyCarousel() {
     const [language, setLanguage] = useState(
-        window.i18n?.getLanguage() || "en"
+        window.i18n?.getLanguage("lang") || "en"
     );
 
     useEffect(() => {
@@ -24,7 +24,16 @@ function JourneyCarousel() {
 
     const items = language === "fr" ? carousel_fr : carousel_en;
 
-    return <CircularCarousel key={language} items={items} />;
+    return (
+        <AccordionGallery
+            key={language}
+            items={items}
+            className="journey-gallery"
+            height={320}
+            accentColor="#A6CFD5"
+            ariaLabel={language === "fr" ? "Mon parcours" : "My journey"}
+        />
+    );
 }
 
 const element = document.getElementById("carousel_cards");

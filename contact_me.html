@@ -1,45 +1,77 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Digital Resume</title> 
-        <link rel="stylesheet" href="contact.css">
-    </head>
-    <body>
-        <header>
-            <h1>Get in touch</h1>
-            <h2>Have a question or an opportunity? Feel free to reach out.</h2>
-        </header>
-        <main>
-            <form id="contact-form">
-                <fieldset>
-                    <div>
-                        <label for="fn">Full name *</label>
-                        <input type="text" id="fn" placeholder="Enter your name" name="name" required>
-                    </div>
-                    <div>
-                        <label for="ea">Email address *</label>
-                        <input type="email" id="ea" placeholder="you@example.com" name="email" required>
-                    </div>
-                     <div>
-                        <label for="sub">Subject *</label>
-                        <input type="text" id="sub" placeholder="Internship opportunity, job offer..." name="subject" required>
-                    </div>
-                    <div>
-                        <label for="mes">Message *</label>
-                        <textarea id="mes" placeholder="Write your message here..." name="message" required></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Send message</button>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contactPageTitle">Contact | Ryme Yacoubi</title>
 
-                </fieldset>
-            </form>
-        </main>
+    <script>
+        try {
+            if (localStorage.getItem("theme") === "dark") {
+                document.documentElement.classList.add("dark_mode");
+            }
+        } catch (e) {}
+    </script>
 
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <header>
+        <nav class="skills-nav" aria-label="Main navigation">
+            <a href="index.html" class="back-home">
+                <span data-i18n="home">Home</span>
+            </a>
+            <div class="nav_controls">
+                <button id="btn_lang" type="button" lang="fr">FR</button>
+                <button id="btn_lum" type="button" aria-label="Switch theme">☀</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <h1 data-i18n="contactHeading">Get in touch</h1>
+            <h2 data-i18n="contactSubheading">Have a question or an opportunity? Feel free to reach out.</h2>
+        </section>
+
+        <form id="contact-form">
+            <fieldset>
+                <div>
+                    <label for="fn" data-i18n="labelName">Full name *</label>
+                    <input type="text" id="fn" name="name" required
+                           placeholder="Enter your name"
+                           data-i18n-attr="placeholder:placeholderName">
+                </div>
+                <div>
+                    <label for="ea" data-i18n="labelEmail">Email address *</label>
+                    <input type="email" id="ea" name="email" required
+                           placeholder="you@example.com"
+                           data-i18n-attr="placeholder:placeholderEmail">
+                </div>
+                <div>
+                    <label for="sub" data-i18n="labelSubject">Subject *</label>
+                    <input type="text" id="sub" name="subject" required
+                           placeholder="Internship opportunity, job offer..."
+                           data-i18n-attr="placeholder:placeholderSubject">
+                </div>
+                <div>
+                    <label for="mes" data-i18n="labelMessage">Message *</label>
+                    <textarea id="mes" name="message" required
+                              placeholder="Write your message here..."
+                              data-i18n-attr="placeholder:placeholderMessage"></textarea>
+                </div>
+                <div>
+                    <button type="submit" data-i18n="sendBtn">Send message</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="translations.js"></script>
+    <script type="module" src="themes.js"></script>
     <script src="contact.js"></script>
-                    
-    </body>
+</body>
 </html>

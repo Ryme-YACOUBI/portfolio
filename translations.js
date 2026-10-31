@@ -43,6 +43,8 @@ const translations = {
         techAria: "Technologies used",
         techConceptsAria: "Technologies and concepts used",
         viewSource: "View source code",
+        moreDetails: "More details",
+        closeLabel: "Close",
 
         /* Projet 1 */
         p1Category: "Professional Experience · Summer Internship",
@@ -84,9 +86,19 @@ const translations = {
         softPerseverance: "Perseverance",
         languagesTitle: "Languages",
         languagesAria: "Languages and proficiency levels",
+                languagesTitle: "Languages",
+        languagesAria: "Languages and proficiency levels",
         langArabic: "Arabic — native",
         langFrench: "French — B2",
         langEnglish: "English — B2",
+        skillsIntro: "A combination of technical knowledge, personal strengths and languages.",
+        skillsPageIntro: "A combination of technical knowledge, personal strengths and language proficiency.",
+        skillsSeeMore: "Explore more about my skills",
+        langArabicName: "Arabic",
+        langFrenchName: "French",
+        langEnglishName: "English",
+        levelNative: "Native",
+        backToPortfolio: "Back to my portfolio",
 
         /* Experiences */
         experiencesTitle: "My Experiences",
@@ -102,6 +114,18 @@ const translations = {
         contactTitle: "Let’s work together",
         contactText: "Looking for an intern or a teammate? Send me a message.",
         contactBtn: "Contact me",
+        contactPageTitle: "Contact | Ryme Yacoubi",
+        contactHeading: "Get in touch",
+        contactSubheading: "Have a question or an opportunity? Feel free to reach out.",
+        labelName: "Full name *",
+        placeholderName: "Enter your name",
+        labelEmail: "Email address *",
+        placeholderEmail: "you@example.com",
+        labelSubject: "Subject *",
+        placeholderSubject: "Internship opportunity, job offer...",
+        labelMessage: "Message *",
+        placeholderMessage: "Write your message here...",
+        sendBtn: "Send message",
         footerText: "© 2026 Ryme Yacoubi. Photos and fonts: credits on the About page."
     },
 
@@ -149,6 +173,8 @@ const translations = {
         techAria: "Technologies utilisées",
         techConceptsAria: "Technologies et concepts utilisés",
         viewSource: "Voir le code source",
+        moreDetails: "Plus de détails",
+        closeLabel: "Fermer",
 
         /* Projet 1 */
         p1Category: "Expérience professionnelle · Stage d’été",
@@ -158,14 +184,14 @@ const translations = {
         p1Objective: "Faciliter la gestion des demandes de staffing et améliorer la visibilité de l’allocation des ressources grâce à des indicateurs de performance.",
         p1Skills: "Développement d’applications web, conception de tableaux de bord, présentation de données et compréhension des besoins métiers.",
 
-        /* Projet 2 */
+                /* Projet 2 */
         p2Category: "Projet académique · Développement web",
         p2Title: "LifeMap EMSI",
-        p2Desc: "Un site web développé dans le cadre d’un projet académique à l’EMSI, qui m’a permis d’appliquer des concepts de développement web et de m’exercer à organiser du contenu au sein d’un site complet.",
-        p2Context: "Projet académique réalisé durant le deuxième semestre de ma deuxième année à l’EMSI.",
-        p2Objective: "Appliquer les concepts de développement web appris durant mes études à travers la conception et la réalisation d’un site web.",
-        p2Skills: "Structuration d’un site web, développement d’interfaces et application des concepts de développement web.",
-
+        p2Desc: "Un site web réalisé à l’EMSI pour m’exercer à organiser du contenu dans un site complet.",
+        p2Context: "Projet académique, deuxième semestre de ma deuxième année.",
+        p2Objective: "Appliquer les concepts de développement web vus en cours.",
+        p2Skills: "Structuration d’un site web et développement d’interface.",
+        
         /* Projet 3 */
         p3Category: "Projet académique · Programmation",
         p3Title: "Gestion de fichiers en C",
@@ -178,6 +204,19 @@ const translations = {
 
         /* Skills */
         skillsTitle: "Mes compétences",
+                languagesTitle: "Langues",
+        languagesAria: "Langues et niveaux de maîtrise",
+        langArabic: "Arabe — langue maternelle",
+        langFrench: "Français — B2",
+        langEnglish: "Anglais — B2",
+        skillsIntro: "Un ensemble de connaissances techniques, de qualités personnelles et de langues.",
+        skillsPageIntro: "Un ensemble de connaissances techniques, de qualités personnelles et de compétences linguistiques.",
+        skillsSeeMore: "Découvrir toutes mes compétences",
+        langArabicName: "Arabe",
+        langFrenchName: "Français",
+        langEnglishName: "Anglais",
+        levelNative: "Langue maternelle",
+        backToPortfolio: "Retour à mon portfolio",
         technicalSkillsTitle: "Compétences techniques",
         technicalSkillsAria: "Compétences techniques",
         softSkillsTitle: "Compétences personnelles",
@@ -208,6 +247,18 @@ const translations = {
         contactTitle: "Travaillons ensemble",
         contactText: "Vous cherchez un(e) stagiaire ou un(e) coéquipier(ère) ? Envoyez-moi un message.",
         contactBtn: "Me contacter",
+        contactPageTitle: "Contact | Ryme Yacoubi",
+        contactHeading: "Contactez-moi",
+        contactSubheading: "Une question ou une opportunité ? N’hésitez pas à me contacter.",
+        labelName: "Nom complet *",
+        placeholderName: "Entrez votre nom",
+        labelEmail: "Adresse e-mail *",
+        placeholderEmail: "vous@exemple.com",
+        labelSubject: "Objet *",
+        placeholderSubject: "Opportunité de stage, offre d’emploi...",
+        labelMessage: "Message *",
+        placeholderMessage: "Écrivez votre message ici...",
+        sendBtn: "Envoyer le message",
         footerText: "© 2026 Ryme Yacoubi. Photos et polices : crédits sur la page À propos."
     }
 };
@@ -265,7 +316,7 @@ const translations = {
     function setLanguage(lang) {
         if (!translations[lang]) return;
         currentLanguage = lang;
-
+        try { localStorage.setItem("lang", lang); } catch (e) {}
         document.documentElement.lang = lang;
         applyTranslations(document);
         updateLanguageButton();
@@ -296,9 +347,16 @@ const translations = {
             return;
         }
 
-        /* Affichage initial : anglais (le HTML est déjà en anglais). */
-        document.documentElement.lang = currentLanguage;
-        updateLanguageButton();
+                /* Affichage initial : langue mémorisée, sinon anglais */
+        let saved = null;
+        try { saved = localStorage.getItem("lang"); } catch (e) {}
+
+        if (saved && translations[saved] && saved !== currentLanguage) {
+            setLanguage(saved);
+        } else {
+            document.documentElement.lang = currentLanguage;
+            updateLanguageButton();
+        }
 
         languageButton.addEventListener("click", toggleLanguage);
     });

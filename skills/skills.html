@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Explore Ryme Yacoubi's technical skills, soft skills and language proficiency.">
+
+    <title>My Skills | Ryme Yacoubi</title>
+    <script>
+        try {
+            if (localStorage.getItem("theme") === "dark") {
+                document.documentElement.classList.add("dark_mode");
+            }
+        } catch (e) {}
+    </script>
+
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="skills.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="skills-nav" aria-label="Main navigation">
+            <a href="../index.html" class="back-home">
+                <span data-i18n="home">Home</span>
+            </a>
+            <div class="nav_controls">
+                <button id="btn_lang" type="button" lang="fr">FR</button>
+                <button id="btn_lum" type="button" aria-label="Switch theme">☀</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="skills-page">
+
+        <section class="skills-hero">
+            <h1 data-i18n="skillsTitle">My Skills</h1>
+            <p data-i18n="skillsIntro">
+                A combination of technical knowledge, personal strengths
+                and language proficiency.
+            </p>
+        </section>
+
+        <!-- TECHNICAL SKILLS -->
+
+        <section class="skills-category">
+            <h2 data-i18n="technicalSkillsTitle">Technical Skills</h2>
+
+            <div class="skills-card">
+
+                <div class="skill-row">
+                    <span class="skill-name">Python</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:65%"></div>
+                    </div>
+                    <span class="skill-percentage">65%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">JavaScript</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:60%"></div>
+                    </div>
+                    <span class="skill-percentage">60%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">HTML</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:85%"></div>
+                    </div>
+                    <span class="skill-percentage">85%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">CSS</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:80%"></div>
+                    </div>
+                    <span class="skill-percentage">80%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">FastAPI</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:55%"></div>
+                    </div>
+                    <span class="skill-percentage">55%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">MySQL</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:70%"></div>
+                    </div>
+                    <span class="skill-percentage">70%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">MERISE</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:70%"></div>
+                    </div>
+                    <span class="skill-percentage">70%</span>
+                </div>
+
+                <div class="skill-row">
+                    <span class="skill-name">PHP</span>
+                    <div class="skill-progress">
+                        <div class="skill-progress-fill" style="width:55%"></div>
+                    </div>
+                    <span class="skill-percentage">55%</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SOFT SKILLS -->
+
+        <section class="skills-category">
+            <h2 data-i18n="softSkillsTitle">Soft Skills</h2>
+
+            <div class="skills-card soft-skills-card">
+
+                <span data-i18n="softSelfLearning">Self-learning</span>
+                <span data-i18n="softConsistency">Consistency</span>
+                <span data-i18n="softProblemSolving">Problem-solving</span>
+                <span data-i18n="softAdaptability">Adaptability</span>
+                <span data-i18n="softCuriosity">Curiosity</span>
+                <span data-i18n="softPerseverance">Perseverance</span>
+
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+
+        <!-- LANGUAGES -->
+
+<section class="skills-category">
+    <h2 data-i18n="languagesTitle">Languages</h2>
+
+    <div class="skills-card languages-card">
+        <div class="language-row">
+            <span data-i18n="langArabicName">Arabic</span>
+            <span class="language-level" data-i18n="levelNative">Native</span>
+        </div>
+        <div class="language-row">
+            <span data-i18n="langFrenchName">French</span>
+            <span class="language-level">B2</span>
+        </div>
+        <div class="language-row">
+            <span data-i18n="langEnglishName">English</span>
+            <span class="language-level">B2</span>
+        </div>
+    </div>
+</section>
+
+        <a href="../index.html#skills" class="back-skills"
+           data-i18n="backToPortfolio">
+            Back to my portfolio
+        </a>
+    </main>
+
+
+    <script src="../translations.js"></script>
+    <script type="module" src="../themes.js"></script>
+
+</body>
+</html>

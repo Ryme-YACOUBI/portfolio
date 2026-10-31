@@ -1,442 +1,38 @@
-/*
-body {
-    background-color: #EEF2E9;
-    color: #17261D;
-    font-family: Georgia, serif;
-    line-height: 1.6;
-    margin: 0;
-}
+/* ==========================================================
+   PORTFOLIO — index.css (version nettoyée)
+
+   Sommaire
+    1. Variables (clair + sombre)
+    2. Base
+    3. Accessibilité
+    4. En-tête et navigation
+    5. Hero
+    6. Sections : espacement, titres, introductions
+    7. Cartes React (About me / My Journey)
+    8. Projets (cartes + fenêtre modale)
+    9. Compétences
+   10. Expériences
+   11. Contact
+   12. Pied de page
+   13. Survol commun des cartes
+   14. Ancien design (à supprimer si plus utilisé)
+   15. Mode sombre
+   16. Réduction des animations
+========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES
+========================================================== */
 
-main {
-    margin: 50px 80px;
-}
-
-// =========================
-// ACCESSIBILITY
-// =========================
-
-.skip_link {
-    position: absolute;
-    left: 16px;
-    top: -60px;
-    background-color: #8C1D40;
-    color: #FFFFFF;
-    padding: 10px 16px;
-    border-radius: 8px;
-}
-
-.skip_link:focus {
-    top: 16px;
-}
-
-a:focus-visible {
-    outline: 3px solid #8C1D40;
-    outline-offset: 3px;
-}
-
-header a:focus-visible,
-footer a:focus-visible,
-.contact a:focus-visible {
-    outline-color: #F3DBB9;
-}
-
-// =========================
-// PORTFOLIO TITLE
-// =========================
-
-#portfolio {
-    font-size: 54px;
-    font-weight: 400;
-    line-height: 1.1;
-    margin: 0 0 8px 0;
-    color: #1F3A2A;
-}
-
-// =========================
-// MENU
-// =========================
-
-a {
-    text-decoration: none;
-}
-
-header {
-    background-color: #1F3A2A;
-    border-bottom: 4px solid #8C1D40;
-}
-
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: space-around;
-    gap: 10px 20px;
-    margin: 0;
-    padding: 18px 80px;
-}
-
-nav a {
-    color: #F3DBB9;
-    font-size: 17px;
-    padding: 6px 2px;
-    border-bottom: 2px solid transparent;
-}
-
-nav a:hover,
-nav a.active {
-    color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
-}
-
-// =========================
-// CARDS GRID
-// =========================
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-// =========================
-// MAIN CARD / HERO
-// =========================
-
-.main_card {
-    display: grid;
-    grid-template-columns: 65% 35%;
-    align-items: center;
-    min-height: 350px;
-    background-color: #FFFFFF;
-    border: 2px solid #17261D;
-    border-radius: 12px;
-
-    grid-column: 1 / -1;
-    overflow: hidden;
-}
-
-// TEXTE DU HERO
-
-.hero_content {
-    padding: 40px;
-}
-
-.hero_content h2 {
-    font-size: 26px;
-    font-weight: 400;
-    color: #8C1D40;
-    margin: 0 0 18px 0;
-}
-
-.hero_content p {
-    font-size: 17px;
-    max-width: 550px;
-}
-
-// LIENS
-
-.hero_links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.hero_links a {
-    color: #1F3A2A;
-    border: 2px solid #1F3A2A;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    padding: 10px 18px;
-    font-size: 16px;
-}
-
-.hero_links a:hover {
-    color: #FFFFFF;
-    background-color: #1F3A2A;
-}
-
-.hero_links a:first-child {
-    color: #FFFFFF;
-    border-color: #8C1D40;
-    background-color: #8C1D40;
-}
-
-.hero_links a:first-child:hover {
-    border-color: #6B1530;
-    background-color: #6B1530;
-}
-
-// PHOTO
-
-.hero_photo {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #D5E0CC;
-    border-left: 2px solid #17261D;
-    padding: 25px;
-    box-sizing: border-box;
-}
-
-.hero_photo img {
-    width: 220px;
-    max-width: 100%;
-    height: 270px;
-    object-fit: cover;
-    border-radius: 15px;
-    border: 2px solid #17261D;
-}
-
-// =========================
-// SKILLS
-// =========================
-
-.skills {
-    grid-column: 1 / -1;
-    background-color: #FFFFFF;
-    border: 2px solid #17261D;
-    border-radius: 12px;
-    padding: 25px 30px;
-    text-align: center;
-}
-
-.skills h2 {
-    margin: 0 0 15px 0;
-    font-size: 26px;
-    font-weight: 400;
-    color: #1F3A2A;
-}
-
-.skills ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    list-style: none;
-    margin: 0 0 18px 0;
-    padding: 0;
-}
-
-.skills li {
-    background-color: #D5E0CC;
-    border: 1px solid #17261D;
-    border-radius: 20px;
-    padding: 6px 16px;
-}
-
-.skills a,
-.more a {
-    color: #8C1D40;
-    border-bottom: 1px solid #8C1D40;
-}
-
-.skills a:hover,
-.more a:hover {
-    color: #6B1530;
-    border-bottom-color: #6B1530;
-}
-
-// =========================
-// SECTION TITLES
-// =========================
-
-.section_title {
-    grid-column: 1 / -1;
-    margin: 20px 0 0 0;
-    padding-left: 14px;
-    border-left: 6px solid #8C1D40;
-    font-size: 30px;
-    font-weight: 400;
-    color: #1F3A2A;
-}
-
-.more {
-    grid-column: 1 / -1;
-    margin: 0;
-    text-align: right;
-}
-
-// =========================
-// SMALL CARDS
-// =========================
-
-.card {
-    display: grid;
-    grid-template-rows: auto 1fr;
-
-    background-color: #FFFFFF;
-    border: 2px solid #17261D;
-    border-radius: 12px;
-
-    overflow: hidden;
-}
-
-.card h3 {
-    margin: 0;
-    padding: 12px;
-    text-align: center;
-
-    border-bottom: 2px solid #17261D;
-
-    background-color: #1F3A2A;
-    color: #FFFFFF;
-
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.card p {
-    margin: 0;
-    padding: 18px;
-    text-align: center;
-    font-size: 16px;
-}
-
-.card span {
-    display: block;
-    margin-top: 12px;
-    font-size: 15px;
-    color: #8C1D40;
-}
-
-// =========================
-// CONTACT
-// =========================
-
-.contact {
-    grid-column: 1 / -1;
-    margin-top: 15px;
-    background-color: #8C1D40;
-    color: #FFFFFF;
-    border: 2px solid #17261D;
-    border-radius: 12px;
-    padding: 40px;
-    text-align: center;
-}
-
-.contact h2 {
-    margin: 0 0 8px 0;
-    font-size: 32px;
-    font-weight: 400;
-}
-
-.contact p {
-    margin: 0 0 22px 0;
-    font-size: 17px;
-}
-
-.contact a {
-    color: #8C1D40;
-    background-color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    border-radius: 8px;
-    padding: 10px 22px;
-    font-size: 16px;
-}
-
-.contact a:hover {
-    background-color: #F3DBB9;
-    border-color: #F3DBB9;
-}
-
-// =========================
-// FOOTER
-// =========================
-
-footer {
-    background-color: #1F3A2A;
-    color: #F3DBB9;
-    text-align: center;
-    padding: 25px 80px;
-    border-top: 4px solid #8C1D40;
-}
-
-footer ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-footer a {
-    color: #F3DBB9;
-    border-bottom: 1px solid #F3DBB9;
-}
-
-footer a:hover {
-    color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
-}
-
-footer p {
-    margin: 10px 0 0 0;
-    font-size: 15px;
-}
-
-// =========================
-// RESPONSIVE
-// =========================
-
-@media (max-width: 900px) {
-    main {
-        margin: 30px;
-    }
-
-    nav ul {
-        padding: 15px 30px;
-    }
-
-    footer {
-        padding: 25px 30px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .main_card {
-        grid-template-columns: 1fr;
-    }
-
-    .hero_photo {
-        border-left: none;
-        border-top: 2px solid #17261D;
-    }
-}
-
-@media (max-width: 600px) {
-    #portfolio {
-        font-size: 38px;
-    }
-
-    .hero_content {
-        padding: 25px;
-    }
-
-    .hero_links a {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    .contact {
-        padding: 30px 20px;
-    }
-}
-*/
-/* =========================
-   VARIABLES
-========================= */
-/* Couleurs du mode clair */
 :root {
     --page-width: 1200px;
+    --section-spacing: 60px;
+    --title-intro-spacing: 20px;
+    --intro-content-spacing: 30px;
+    --font: Georgia, "Times New Roman", serif;
 
-    /* Couleurs de ton identité visuelle */
+    /* Palette */
     --navy: #142B3B;
     --blue: #294C60;
     --cream: #F0F7FA;
@@ -444,15 +40,18 @@ footer p {
     --steel: #8296A0;
     --light-blue: #A6CFD5;
 
-    /* Couleurs des éléments selon le thème */
+    /* Éléments selon le thème */
     --page-bg: #FFFFFF;
     --surface: #FFFFFF;
     --text: #142B3B;
     --muted-text: #294C60;
 
-    font-family: Georgia, serif;
+    --hover-shadow:
+        0 0 0 1px rgba(41, 76, 96, 0.28),
+        0 10px 26px -14px rgba(20, 43, 59, 0.28);
 }
 
+/* Le mode sombre redéfinit la palette : doit rester APRÈS :root */
 .dark_mode {
     --page-bg: #0E1A24;
     --surface: #16262F;
@@ -462,65 +61,50 @@ footer p {
     --accent: #7FB8C4;
     --border: #2C4A5A;
 
-    /* on redéfinit les variables de ta palette claire */
     --navy: #E6EEF2;
     --blue: #7FB8C4;
     --cream: #1D3340;
     --mist: #2C4A5A;
     --steel: #6F8A98;
     --light-blue: #7FB8C4;
+
+    --hover-shadow:
+        0 0 0 1px rgba(127, 184, 196, 0.38),
+        0 10px 26px -14px rgba(0, 0, 0, 0.60);
 }
 
-/* Cartes qui étaient en blanc fixe */
-.dark_mode .main_card,
-.dark_mode .skills,
-.dark_mode .card,
-.dark_mode .section-intro,
-.dark_mode .project-card,
-.dark_mode .skill-card,
-.dark_mode .project-item {
-    background-color: var(--surface);
-    border-color: var(--border);
+
+/* ==========================================================
+   2. BASE
+========================================================== */
+
+html,
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
 }
 
-/* Header et contact restent sombres, mais le texte doit rester clair */
-.dark_mode header {
-    background-color: #142B3B;
-    border-bottom-color: #2C4A5A;
+/* Le conteneur React ne doit pas réduire la largeur */
+#root {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
-
-.dark_mode .contact {
-    background-color: #142B3B;
-    border-color: #2C4A5A;
-}
-
-.dark_mode .contact a {
-    background-color: #E6EEF2;
-    color: #0E1A24;
-}
-
-.dark_mode .project-card h3,
-.dark_mode .skill-card h3 {
-    color: var(--text);
-}
-
-.dark_mode .project-description,
-.dark_mode .project-role,
-.dark_mode .section-intro {
-    color: var(--muted-text);
-}
-/* =========================
-   BASE
-========================= */
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: var(--page-bg);
     color: var(--text);
-    font-family: Georgia, serif;
+    font-family: var(--font);
+    font-size: 1.05rem;
     line-height: 1.6;
-    margin: 0;
 }
-body,
+
 button,
 input,
 textarea,
@@ -528,28 +112,58 @@ select {
     font-family: inherit;
 }
 
-main {
-    max-width: var(--page-width);
-    margin: 40px auto 10px;
-    padding: 0 24px;
-    box-sizing: border-box;
+p,
+li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font);
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 a {
     text-decoration: none;
 }
 
-/* =========================
-   ACCESSIBILITY
-========================= */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--page-width);
+    margin: 40px auto 10px;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+#portfolio {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+}
+
+@media (max-width: 900px) {
+    main {
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+}
+
+
+/* ==========================================================
+   3. ACCESSIBILITÉ
+========================================================== */
 
 .skip_link {
     position: absolute;
     left: 16px;
     top: -60px;
+    padding: 10px 16px;
     background-color: var(--navy);
     color: #FFFFFF;
-    padding: 10px 16px;
     border-radius: 8px;
 }
 
@@ -568,80 +182,18 @@ footer a:focus-visible,
     outline-color: var(--mist);
 }
 
-/* =========================
-   TITLE
-========================= */
 
-#portfolio {
-    font-size: 54px;
-    font-weight: 400;
-    line-height: 1.1;
-    margin: 0 0 8px 0;
-    color: var(--navy);
-}
-
-/* =========================
-   MENU
-========================= */
+/* ==========================================================
+   4. EN-TÊTE ET NAVIGATION
+========================================================== */
 
 header {
-    background-color: var(--navy);
-    border-bottom: 4px solid var(--blue);
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    background: #142B3B;
+    border-bottom: 3px solid #A6CFD5;
 }
-
-
-
-/* Bouton du thème : soleil / lune */
-#btn_lum {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    padding: 0;
-    border: 1px solid var(--steel);
-    border-radius: 50%;
-    background-color: var(--navy);
-    color: var(--cream);
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
-}
-
-/* Bouton de langue : FR / EN */
-#btn_lang {
-    min-width: 44px;
-    height: 38px;
-    padding: 0 10px;
-    border: 1px solid var(--steel);
-    border-radius: 20px;
-    background-color: var(--navy);
-    color: var(--cream);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
-}
-
-/* Effet au survol */
-#btn_lum:hover,
-#btn_lang:hover {
-    background-color: var(--blue);
-    border-color: var(--light-blue);
-    transform: translateY(-2px);
-}
-
-/* Accessibilité au clavier */
-#btn_lum:focus-visible,
-#btn_lang:focus-visible {
-    outline: 2px solid var(--light-blue);
-    outline-offset: 3px;
-}
-
 
 nav {
     display: flex;
@@ -649,45 +201,129 @@ nav {
     width: 100%;
 }
 
-nav ul {
+header nav ul {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 8px 16px;
-    list-style: none;
     flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     min-width: 0;
     margin: 0;
-    padding: 16px 12px;
+    padding: 8px 24px;
+    list-style: none;
     box-sizing: border-box;
 }
 
+header nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #F8F6F1;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-bottom: 2px solid transparent;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+    background-color: transparent;
+    color: var(--light-blue);
+    border-bottom-color: var(--light-blue);
+}
+
+/* Boutons langue et thème */
 .nav_controls {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 12px;
     flex-shrink: 0;
-    margin-right: 24px;
+    margin: 0 24px 0 12px;
 }
 
-
-nav a {
+#btn_lum,
+#btn_lang {
+    border: 1px solid var(--steel);
+    background-color: var(--navy);
     color: var(--cream);
-    font-size: 16px;
-    padding: 6px 4px;
-    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
 }
 
-nav a:hover,
-nav a.active {
-    color: var(--mist);
-    border-bottom-color: var(--mist);
+#btn_lum {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 24px;
 }
 
-/* =========================
-   GRID
-========================= */
+#btn_lang {
+    min-width: 44px;
+    height: 38px;
+    padding: 0 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#btn_lum:hover,
+#btn_lang:hover {
+    background-color: var(--blue);
+    border-color: var(--light-blue);
+    transform: translateY(-2px);
+}
+
+#btn_lum:focus-visible,
+#btn_lang:focus-visible {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 3px;
+}
+
+/* Menu des pages secondaires (skills, contact) */
+header nav.skills-nav {
+    justify-content: space-between;
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
+
+header nav.skills-nav .nav_controls {
+    margin: 0;
+}
+
+header nav a.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    font-size: 0.95rem;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+header nav a.back-home:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 0 0 1px #A6CFD5;
+    border-bottom-color: transparent;
+}
+
+@media (max-width: 700px) {
+    header nav.skills-nav {
+        padding: 10px 16px;
+    }
+}
+
+
+/* ==========================================================
+   5. HERO
+========================================================== */
 
 .cards {
     display: grid;
@@ -695,28 +331,16 @@ nav a.active {
     gap: 24px;
 }
 
-/* Conteneurs de cartes générés par le JS : pleine largeur */
-.cards-grid {
-    grid-column: 1 / -1;
-    width: 100%;
-    align-self: start;
-    min-width: 0;
-}
-
-/* =========================
-   HERO
-========================= */
-
 .main_card {
     display: grid;
     grid-template-columns: 65% 35%;
+    grid-column: 1 / -1;
     align-items: stretch;
     min-height: 350px;
+    overflow: hidden;
     background-color: #FFFFFF;
     border: 1px solid var(--blue);
     border-radius: 12px;
-    grid-column: 1 / -1;
-    overflow: hidden;
 }
 
 .hero_content {
@@ -724,15 +348,14 @@ nav a.active {
 }
 
 .hero_content h2 {
-    font-size: 26px;
-    font-weight: 400;
+    margin: 0 0 18px;
     color: var(--blue);
-    margin: 0 0 18px 0;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
 
 .hero_content p {
-    font-size: 17px;
     max-width: 550px;
+    font-weight: 500;
 }
 
 .hero_links {
@@ -743,24 +366,24 @@ nav a.active {
 }
 
 .hero_links a {
-    color: var(--blue);
-    border: 2px solid var(--blue);
-    background-color: #FFFFFF;
-    border-radius: 8px;
     padding: 10px 18px;
-    font-size: 16px;
+    background-color: #FFFFFF;
+    color: var(--blue);
+    font-size: 0.9rem;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
 }
 
 .hero_links a:hover {
-    color: #FFFFFF;
     background-color: var(--navy);
     border-color: var(--navy);
+    color: #FFFFFF;
 }
 
 .hero_links a:first-child {
-    color: #FFFFFF;
     background-color: var(--navy);
     border-color: var(--navy);
+    color: #FFFFFF;
 }
 
 .hero_links a:first-child:hover {
@@ -769,678 +392,169 @@ nav a.active {
 }
 
 .hero_photo {
-    height: auto;
-    align-self: stretch;
-    background-color: var(--navy);
-    border-left: 2px solid var(--blue);
-    padding: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    height: auto;
+    align-self: center;
+    margin-top: 0;
 }
 
 .hero_photo img {
-    width: 100%;
     max-width: 280px;
-    height: 320px;
+    width: 220px;
+    height: 270px;
     object-fit: cover;
-    object-position: center 30%;
-    border: none;
-    border-radius: 46% 46% 12px 12px;
-}
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills {
-    grid-column: 1 / -1;
-    background-color: #FFFFFF;
-    border: 1px solid var(--blue);
-    border-radius: 12px;
-    padding: 25px 30px;
-    text-align: center;
-}
-
-.skills h2 {
-    margin: 0 0 15px 0;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--navy);
-}
-
-.skills ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    list-style: none;
-    margin: 0 0 18px 0;
-    padding: 0;
-}
-
-.skills li {
-    background-color: var(--mist);
-    color: var(--navy);
-    border: 1px solid var(--steel);
-    border-radius: 20px;
-    padding: 6px 16px;
-}
-
-.skills a,
-.more a {
-    color: var(--blue);
-    border-bottom: 1px solid var(--blue);
-}
-
-.skills a:hover,
-.more a:hover {
-    color: var(--navy);
-    border-bottom-color: var(--navy);
-}
-
-/* =========================
-   SECTION TITLES
-========================= */
-
-.section_title {
-    grid-column: 1 / -1;
-    margin: 16px 0 0 0;
-    padding-left: 14px;
-    border-left: 6px solid var(--blue);
-    font-size: 30px;
-    font-weight: 400;
-    color: var(--navy);
-}
-
-.more {
-    grid-column: 1 / -1;
-    margin: -8px 0 0 0;
-    text-align: right;
-}
-
-/* =========================
-   SMALL CARDS
-========================= */
-
-.card {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    background-color: #FFFFFF;
-    border: 2px solid var(--blue);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.card h3 {
-    margin: 0;
-    padding: 12px;
-    text-align: center;
-    border-bottom: 2px solid var(--blue);
-    background-color: var(--navy);
-    color: #FFFFFF;
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.card p {
-    margin: 0;
-    padding: 18px;
-    text-align: center;
-    font-size: 16px;
-    color: var(--blue);
-}
-
-.card span {
     display: block;
-    margin-top: 12px;
-    font-size: 15px;
-    color: var(--blue);
 }
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    grid-column: 1 / -1;
-    margin-top: 15px;
-    background-color: #FFFFFF;
-    color: var(--navy);
-    border: 1px solid var(--blue);
-    border-radius: 12px;
-    padding: 40px;
-    text-align: center;
-}
-
-
-
-.contact p {
-    margin: 0 0 22px 0;
-    font-size: 17px;
-    color: #EDF2F4;
-}
-
-.contact a {
-    display: inline-block;
-    color: var(--navy);
-    background-color: var(--cream);
-    border: 2px solid var(--cream);
-    border-radius: 8px;
-    padding: 10px 22px;
-    font-size: 16px;
-}
-
-.contact a:hover {
-    background-color: var(--mist);
-    border-color: var(--mist);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background-color: transparent;
-    color: var(--navy);
-    text-align: center;
-    padding-bottom:24px;
-    border-top: none;
-}
-
-footer a {
-    color: var(--blue);
-    border-bottom: none;
-}
-
-footer a:hover {
-    color: var(--navy);
-    text-decoration: underline;
-}
-
-footer p {
-    margin: 10px 0 0 0;
-    font-size: 15px;
-    color: var(--navy);
-}
-footer ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 900px) {
-    main {
-        margin: 24px auto;
-        padding: 0 16px;
-    }
-
-    nav ul {
-        padding: 12px 16px;
-        gap: 6px 20px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
+    .cards,
     .main_card {
         grid-template-columns: 1fr;
     }
 
     .hero_photo {
-        border-left: none;
-        border-top: 2px solid var(--blue);
         min-height: 350px;
-    }
-
-    .hero_photo img {
-        width: 240px;
-        height: 290px;
     }
 }
 
 @media (max-width: 600px) {
-    #portfolio {
-        font-size: 38px;
-    }
-
     .hero_content {
         padding: 25px;
     }
 
     .hero_links a {
         width: 100%;
-        text-align: center;
         box-sizing: border-box;
-    }
-
-    .contact {
-        padding: 30px 20px;
+        text-align: center;
     }
 }
-/* =========================
-   MENU EN HAUT / FOOTER EN BAS
-========================= */
 
-html,
-body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
+
+/* ==========================================================
+   6. SECTIONS : ESPACEMENT, TITRES, INTRODUCTIONS
+========================================================== */
+
+.about-section,
+.journey-section,
+.projects-section,
+.skills-section,
+.experiences-section {
+    margin-top: var(--section-spacing);
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Menu : collé en haut, pleine largeur */
-header {
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-/* Le contenu prend toute la place restante */
-main {
-    flex: 1;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Footer : collé en bas, pleine largeur */
-footer {
-    width: 100%;
-    margin: auto 0 0 0;
-    box-sizing: border-box;
-}
-/* Contact message */
-.contact p {
-    color: var(--blue);
-}
-
-/* Contact button — same colors as Key Skills */
-
-.contact a {
-    display: inline-block;
+.section_title {
+    grid-column: 1 / -1;
+    margin: 0 0 var(--title-intro-spacing);
+    padding-left: 14px;
     color: var(--navy);
-    background-color: var(--mist);
-    border: 1px solid var(--steel);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 16px;
-}
-.contact a:hover {
-    background-color: var(--mist);
-    border-color: var(--mist);
-}
-header {
-    background-color: #294C60;
-    border-bottom: 3px solid #A6CFD5;
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    border-left: 6px solid var(--blue);
 }
 
-nav a {
-    display: inline-block;
-    color: #F2F1EC;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-bottom: 2px solid transparent;
-    border-radius: 6px;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-nav a:hover,
-nav a.active {
-    color: var(--light-blue);
-    background-color: transparent;
-    border-bottom-color: var(--light-blue);
-}
-#carousel_cards {
+.section-intro {
     width: 100%;
-    height: 480px;
-    padding: 0;
-    margin: 0;
-}
-
-.accordion-gallery {
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.ag-panel {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(41, 76, 96, 0.25);
-  background-color: #D5E0E2;
-  background-repeat: no-repeat;
-  box-shadow: 0 5px 18px rgba(20, 43, 59, 0.08);
-  transition: box-shadow 0.3s ease;
-}
-
-.ag-panel:hover,
-.ag-panel--active {
-  box-shadow: 0 10px 28px rgba(20, 43, 59, 0.16);
+    margin: 0 0 var(--intro-content-spacing);
+    padding: 24px 30px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: var(--blue);
+    font-weight: 400;
+    border: 1px solid var(--blue);
+    border-radius: 12px;
 }
 
 
+/* ==========================================================
+   7. CARTES REACT (About me / My Journey)
+   Le composant GSAP écrit un `transform` en inline (rotateY) :
+   le soulèvement utilise donc la propriété `translate`,
+   qui s'ajoute au transform au lieu d'être écrasée.
+========================================================== */
 
-.ag-panel__body {
-  color: #F8F6F1;
-}
-
-.ag-panel__title {
-  color: #FFFFFF;
-}
-
-.ag-panel__desc {
-  color: #F8F6F1;
-  line-height: 1.6;
-}
-
-.ag-panel__tag {
-  color: #142B3B;
-  background: #D5E0E2;
-  border: 1px solid #A6CFD5;
-  border-radius: 20px;
-  padding: 4px 10px;
-}
-
-.ag-panel__bar {
-  background: #A6CFD5;
-}
-
-@media (max-width: 600px) {
-  .accordion-gallery {
-    height: 520px !important;
-  }
-
-  .ag-panel__desc {
-    font-size: 13px;
-  }
-}
-
-
-
-.ag-panel__index {
-    color: #FFFFFF;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-}
-
-
-.ag-panel__tag {
-    color: #FFFFFF;
-    background: #294C60;
-    border: 1px solid #A6CFD5;
-    border-radius: 20px;
-    padding: 4px 10px;
-}
-
-.section-intro p {
-    font-size: 1.2rem;
-    line-height: 1.3;
-    max-width: 100%;
-    margin: 25px 0 45px;
-    text-align: left;
-}
-header nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-    padding: 8px 24px;
-    margin: 0;
-    flex-wrap: wrap;
-}
-
-header {
-    background: #142B3B;
-}
-
-header nav a {
-    color: #F8F6F1;
-    text-decoration: none;
-}
-.hero_photo {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-}
-
-.hero_photo img {
-    display: block;
-    width: 280px;
-    height: auto;
-    object-fit: contain;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-}
-.about-section {
-    margin-top: 48px;
-    padding-top: 10px;
-}
-
-.about-section .section_title {
-    margin-bottom: 30px;
+.cards-grid {
+    grid-column: 1 / -1;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
 }
 
 .about-section .cards-grid {
     display: grid;
     gap: 24px;
-    margin-top: 0;
 }
 
-.section-intro {
+#carousel_cards {
     width: 100%;
-    height: fit-content;
-    margin: 24px 0 30px;
-    padding: 24px 30px;
-    box-sizing: border-box;
-
-    background-color: #FFFFFF;
-    border: 1px solid var(--blue);
-    border-radius: 12px;
-
-    color: var(--blue);
-    font-family: Georgia, serif;
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.section-intro p {
+    height: 320px;
     margin: 0;
-}
-#about .section_title {
-    margin-top: 0px;
+    padding: 0;
 }
 
-:root {
-    --section-spacing: 60px;
-    --title-intro-spacing: 20px;
-    --intro-carousel-spacing: 30px;
-}
-
-/* Espacement entre les sections */
-.about-section,
-.journey-section {
-    margin-top: 0;
-    padding-top: var(--section-spacing);
-}
-
-/* Espacement sous les titres */
-.about-section .section_title,
-.journey-section .section_title,
-.projects-section .section_title {
-    margin-top: 0;
-    margin-bottom: var(--title-intro-spacing);
-}
-
-/* Espacement entre l'introduction et les cartes */
-.section-intro{
-    margin-top: 0;
-    margin-bottom: var(--intro-carousel-spacing);
-}
-
-/* Même style d'écriture pour les titres et le contenu de la carte */
-.section_title,
-#portfolio,
-.hero_content h2,
-.hero_content p {
-    font-family: Georgia, "Times New Roman", serif;
-    letter-spacing: -0.03em;
-}
-
-/* Titres des sections */
-
-
-/* IT Engineering Student */
-.hero_content h2 {
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-/* Phrase d'accroche */
-.hero_content p {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-    #portfolio {
-        font-size: 38px;
-    }
-}
-
-
-
-/* Espacement sous les titres */
-.about-section .section_title,
-.journey-section .section_title {
-    margin-top: 0;
-    margin-bottom: var(--title-intro-spacing);
-}
-
-/* Espacement entre l'introduction et les cartes */
-
-.section-intro {
-    margin-top: 0;
-    margin-bottom: var(--intro-carousel-spacing);
-}
-
-/* Police générale */
-body,
-button,
-input,
-textarea,
-select {
-    font-family: Georgia, "Times New Roman", serif;
-}
-
-/* Texte courant */
-body,
-p,
-li {
-    font-size: 1.05rem;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: normal;
-}
-
-/* Style commun des titres */
-h1,
-h2,
-h3,
-#portfolio,
-.section_title,
-.hero_content h2,
-.skills h2,
-.contact h2,
-.card h3 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: normal;
-}
-
-/* Nom principal */
-#portfolio {
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
-}
-
-/* Titres des sections */
-.section_title {
-    font-size: clamp(1.6rem, 2.6vw, 2rem);
-}
-
-/* Sous-titres */
-.hero_content h2,
-.skills h2,
-.contact h2,
-.card h3 {
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-}
-
-/* Phrase d'accroche et introductions */
-.hero_content p,
-.card p,
-.contact p,
-.section-intro ,
-.section-intro p{
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.6;
-    letter-spacing: normal;
-}
-
-/* Navigation, boutons et petits éléments */
-nav a,
-.hero_links a,
-.contact a,
-.skills li,
-.card span,
-footer p,
-footer a {
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: normal;
-}
-
-/* Galerie React */
 .accordion-gallery {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font);
+}
+
+.ag-panel {
+    position: relative;
+    overflow: hidden;
+    background-color: #D5E0E2;
+    background-repeat: no-repeat;
+}
+
+.accordion-gallery .ag-panel {
+    border: 1px solid var(--mist);
+    box-shadow: 0 5px 18px rgba(20, 43, 59, 0.08);
+    translate: 0 0;
+    transition: translate 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease,
+                filter 0.45s ease;
+}
+
+/* La carte survolée (active) ou focalisée monte seule */
+.accordion-gallery .ag-panel--active,
+.accordion-gallery .ag-panel:focus-visible {
+    translate: 0 -4px;
+    border-color: var(--steel);
+    box-shadow: 0 10px 26px -14px rgba(20, 43, 59, 0.35);
+}
+
+/* Contenu des cartes */
+.ag-panel__body {
+    color: #F8F6F1;
 }
 
 .ag-panel__title {
-    font-family: Georgia, "Times New Roman", serif;
+    color: #FFFFFF;
+    font-family: var(--font);
     font-size: clamp(1.2rem, 2vw, 1.6rem);
     font-weight: 400;
     line-height: 1.2;
-    letter-spacing: normal;
 }
 
 .ag-panel__desc {
+    color: #F8F6F1;
     font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.5;
-    letter-spacing: normal;
+}
+
+.ag-panel__bar {
+    background: #A6CFD5;
+}
+
+.ag-panel__tag {
+    padding: 4px 10px;
+    background: #294C60;
+    color: #FFFFFF;
+    border: 1px solid #A6CFD5;
+    border-radius: 20px;
+}
+
+.ag-panel__index {
+    color: #FFFFFF;
 }
 
 .ag-panel__vtitle,
@@ -1450,235 +564,24 @@ footer a {
     letter-spacing: normal;
 }
 
-
-.contact h2 {
-    margin: 0 0 8px 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 30px;
-    font-weight: 400;
-    letter-spacing: normal;
-    line-height: 1.2;
+@media (max-width: 640px) {
+    .accordion-gallery .ag-panel--active,
+    .accordion-gallery .ag-panel:focus-visible {
+        translate: 0 0;
+    }
 }
 
 
 
 
-.project-subtitle {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-/* =========================
-   PROJECTS SECTION
-========================= */
+/* ==========================================================
+   8. PROJETS
+========================================================== */
 
 .projects-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 5px;
-    width: 100%;
-    box-sizing: border-box;
+    margin-bottom: 5px;
 }
 
-/* Titre et introduction */
-.projects-section > .section_title,
-.projects-section > .section-intro {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Introduction */
-.projects-section > .section-intro {
-    margin-bottom: 4px;
-}
-
-/* Une ligne par catégorie */
-.project-item {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 24px;
-    background: #FFFFFF;
-    border: 1px solid var(--mist);
-    border-radius: 12px;
-    box-sizing: border-box;
-    transition: border-color 0.25s ease;
-}
-
-/* Titre de la catégorie */
-.project-subtitle {
-    margin: 0 0 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--light-blue);
-    color: var(--navy);
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.35;
-}
-
-/* Zone de contenu React */
-.project-item > div {
-    width: 100%;
-    min-width: 0;
-}
-
-/* Images et vidéos */
-.project-item img,
-.project-item video {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Évite les débordements */
-.project-item p {
-    overflow-wrap: anywhere;
-}
-
-/* Téléphones */
-@media (max-width: 600px) {
-    .projects-section {
-        gap: 18px;
-        margin-top: 40px;
-    }
-
-    .project-item {
-        padding: 18px;
-    }
-}
-
-
-/* Le titre et l'introduction occupent toute la largeur */
-.projects-section > .section_title,
-.projects-section > .section-intro {
-    grid-column: 1 / -1;
-}
-
-/* Introduction : moins d'espace sous le texte */
-.projects-section > .section-intro {
-    margin-bottom: 4px;
-}
-
-/* Une carte pour chaque catégorie de projet */
-.project-item {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    margin: 0;
-    padding: 24px;
-    background: #FFFFFF;
-    border: 1px solid var(--blue);
-    border-radius: 12px;
-    box-sizing: border-box;
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-/* Effet discret au survol */
-.project-item:hover {
-    transform: translateY(-4px);
-    border-color: var(--steel);
-    box-shadow: 0 10px 24px rgba(20, 43, 59, 0.08);
-}
-
-/* Titre de chaque catégorie */
-.project-subtitle {
-    margin: 0 0 22px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--blue);
-    color: var(--navy);
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.35;
-}
-
-/* Contenu généré par React */
-.project-item > div {
-    flex: 1;
-    min-width: 0;
-}
-
-/* Images et médias responsives */
-.project-item img,
-.project-item video {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Évite les débordements de texte */
-.project-item p {
-    overflow-wrap: anywhere;
-}
-
-/* Adaptation aux tablettes */
-@media (max-width: 900px) {
-    .projects-section {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-    }
-
-    .projects-section > .section_title,
-    .projects-section > .section-intro {
-        grid-column: 1 / -1;
-    }
-}
-
-/* Adaptation aux téléphones */
-@media (max-width: 600px) {
-    .projects-section {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        margin-top: 40px;
-    }
-
-    .project-item {
-        padding: 20px;
-    }
-
-    .project-subtitle {
-        margin-bottom: 16px;
-        font-size: 1.15rem;
-    }
-}
-
-/* Respect des préférences de mouvement */
-@media (prefers-reduced-motion: reduce) {
-    .project-item {
-        transition: none;
-    }
-
-    .project-item:hover {
-        transform: none;
-    }
-}
-/* =========================
-   PROJECTS SECTION
-========================= */
-
-.projects-section {
-    width: 100%;
-    margin: 5px 0;
-    box-sizing: border-box;
-}
-
-/* Section title and introduction */
-.projects-section > .section_title {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.projects-section > .section-intro {
-    margin: 0 0 24px;
-}
-
-/* Projects grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1687,38 +590,26 @@ footer a {
     align-items: stretch;
 }
 
-/* Individual project card */
 .project-card {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     min-width: 0;
+    min-height: 250px;
     padding: 24px;
-    background-color: #FFFFFF;
-    border: 1px solid var(--blue);
-    border-radius: 12px;
     box-sizing: border-box;
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
-/* Hover effect */
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--light-blue);
-    box-shadow: 0 10px 24px rgba(20, 43, 59, 0.10);
-}
-
-/* Number */
 .project-number {
+    margin-bottom: 18px;
     color: var(--steel);
     font-size: 0.9rem;
     letter-spacing: 0.12em;
-    margin-bottom: 18px;
 }
 
-/* Category label */
 .project-category {
     margin: 0 0 8px;
     color: var(--blue);
@@ -1727,16 +618,22 @@ footer a {
     letter-spacing: 0.08em;
 }
 
-/* Project title */
+/* Même hauteur de titre d'une carte à l'autre */
+.project-card > .project-category {
+    min-height: 3.2em;
+}
+
+.project-card > h3 {
+    min-height: 2.7em;
+}
+
 .project-card h3 {
     margin: 0 0 14px;
     color: var(--navy);
     font-size: 1.3rem;
-    font-weight: 500;
     line-height: 1.35;
 }
 
-/* Description */
 .project-description {
     margin: 0 0 18px;
     color: var(--blue);
@@ -1744,26 +641,6 @@ footer a {
     line-height: 1.7;
 }
 
-/* Technology tags */
-.project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    margin: 0 0 20px;
-    padding: 0;
-}
-
-.project-technologies li {
-    padding: 5px 10px;
-    background-color: var(--cream);
-    border: 1px solid var(--mist);
-    border-radius: 20px;
-    color: var(--navy);
-    font-size: 0.8rem;
-}
-
-/* Your role */
 .project-role {
     margin: 0 0 24px;
     color: var(--blue);
@@ -1775,7 +652,27 @@ footer a {
     color: var(--navy);
 }
 
-/* Project link */
+/* Bulles de technologies (projets + compétences) */
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 8px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.project-technologies li {
+    padding: 5px 10px;
+    background-color: var(--cream);
+    color: var(--navy);
+    font-size: 0.8rem;
+    border: 1px solid var(--mist);
+    border-radius: 20px;
+}
+
+/* Lien vers le code */
 .project-link {
     display: inline-flex;
     align-items: center;
@@ -1783,11 +680,10 @@ footer a {
     gap: 12px;
     margin-top: auto;
     padding-top: 14px;
-    border-top: 1px solid var(--mist);
     color: var(--navy);
     font-size: 0.9rem;
     font-weight: 500;
-    text-decoration: none;
+    border-top: 1px solid var(--mist);
 }
 
 .project-link span {
@@ -1808,7 +704,139 @@ footer a {
     outline-offset: 4px;
 }
 
-/* Tablets */
+/* Bouton « More details » */
+.project-more {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: auto;
+    padding: 14px 0 0;
+    background: none;
+    color: var(--navy);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    border: none;
+    border-top: 1px solid var(--mist);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.project-more__icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.project-more:hover {
+    color: var(--blue);
+}
+
+.project-card:hover .project-more__icon {
+    transform: rotate(90deg);
+}
+
+.project-more:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+/* Fenêtre modale */
+.project-modal {
+    width: min(92vw, 640px);
+    max-height: 86vh;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border, var(--blue));
+    border-radius: 12px;
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.45);
+}
+
+.project-modal[open] {
+    animation: project-modal-in 0.3s ease both;
+}
+
+.project-modal::backdrop {
+    background: rgba(14, 26, 36, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.project-modal[open]::backdrop {
+    animation: project-backdrop-in 0.3s ease both;
+}
+
+/* Le contenu défile, le bouton de fermeture reste en place */
+.project-modal__inner {
+    max-height: 86vh;
+    padding: 40px 32px 32px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.project-modal__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: var(--surface);
+    color: var(--navy);
+    font-size: 1.4rem;
+    line-height: 1;
+    border: 1px solid var(--mist);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.project-modal__close:hover {
+    background-color: var(--cream);
+}
+
+.project-modal__close:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 2px;
+}
+
+.project-modal .project-role {
+    margin-bottom: 16px;
+}
+
+.project-modal .project-link {
+    display: flex;
+    margin-top: 24px;
+}
+
+html.modal-open {
+    overflow: hidden;
+}
+
+@keyframes project-modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes project-backdrop-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 @media (max-width: 900px) {
     .projects-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1816,140 +844,133 @@ footer a {
     }
 }
 
-/* Phones */
 @media (max-width: 600px) {
-    .projects-section {
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
     .project-card {
+        min-height: 0;
         padding: 20px;
     }
-}
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .project-card,
-    .project-link span {
-        transition: none;
+    .project-card > .project-category,
+    .project-card > h3 {
+        min-height: 0;
     }
 
-    .project-card:hover {
-        transform: none;
-    }
-
-    .project-link:hover span {
-        transform: none;
-    }
-}
-/* Align the content inside all project cards */
-.project-card {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-.project-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-
-    /* Same vertical positions in every card */
-    grid-template-rows:
-        3rem       /* Category */
-        3.8rem     /* Project title */
-        9.5rem     /* Description */
-        4rem       /* Context */
-        5.5rem     /* Objective */
-        5.5rem     /* Skills developed */
-        auto;      /* Technology bubbles */
-
-    gap: 1rem;
-    flex: 1;
-    align-content: start;
-}
-
-/* Reset margins so they do not disturb the alignment */
-.project-content > * {
-    margin-top: 0;
-    margin-bottom: 0;
-    min-width: 0;
-}
-
-.project-content > .project-technologies {
-    align-self: start;
-}
-
-/* Keep all technology bubbles together */
-.project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 0.5rem;
-}
-
-/* On narrow screens, let content adapt naturally */
-@media (max-width: 768px) {
-    .project-content {
-        grid-template-rows: none;
+    .project-modal__inner {
+        padding: 36px 20px 24px;
     }
 }
 
-/* ========================================
-   SKILLS PAGE
-======================================== */
 
-/* Skills layout */
+/* ==========================================================
+   9. COMPÉTENCES
+========================================================== */
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 4rem;
-    row-gap: 2.5rem;
+    gap: 22px;
+    width: 100%;
+    align-items: stretch;
 }
 
-/* Each skill category */
-.skill-category {
-    padding-top: 1.2rem;
-    border-top: 1px solid #8296A0;
+.skill-card--technical {
+    grid-column: 1 / -1;
 }
 
-.skill-category h2 {
-    margin: 0 0 1rem;
-    color: #142B3B;
-    font-family: Georgia, serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+.skill-card {
+    min-width: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+}
+
+.skill-card h3 {
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    color: var(--navy);
+    font-size: 1.25rem;
     line-height: 1.4;
+    border-bottom: 1px solid var(--mist);
 }
 
-.skill-category ul {
+.skill-card .project-technologies {
     margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
-.skill-category li {
-    padding: 0.45rem 0;
-    color: #294C60;
+.skill-card .project-technologies li {
+    line-height: 1.5;
+}
+
+/* Bouton « Explore more about my skills » */
+.skills-more {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.skills-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--navy);
+    color: #FFFFFF;
     font-size: 0.95rem;
-    line-height: 1.6;
+    font-weight: 500;
+    border: 1px solid var(--blue);
+    border-radius: 20px;
+    transition: background-color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.skills-more-link:hover {
+    background-color: var(--blue);
+    border-color: var(--light-blue);
+    box-shadow: 0 8px 20px rgba(20, 43, 59, 0.18);
+    transform: translateY(-2px);
+}
+
+.skills-more-link:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.skills-more-link:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skill-card {
+        padding: 20px;
+    }
+
+    .skill-card--technical {
+        grid-column: auto;
+    }
 }
 
 
-/* ========================================
-   EXPERIENCES PAGE
-======================================== */
+/* ==========================================================
+   10. EXPÉRIENCES
+========================================================== */
 
 .experiences-list {
     margin-top: 2rem;
 }
 
-/* Each experience is presented as a row */
 .experience-item {
     display: grid;
     grid-template-columns: 180px minmax(0, 1fr);
@@ -1958,7 +979,6 @@ footer a {
     border-top: 1px solid #D5E0E2;
 }
 
-/* Date column */
 .experience-date {
     margin: 0;
     padding-top: 0.25rem;
@@ -1967,11 +987,9 @@ footer a {
     line-height: 1.6;
 }
 
-/* Experience details */
 .experience-content h2 {
     margin: 0 0 0.5rem;
     color: #142B3B;
-    font-family: Georgia, serif;
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.4;
@@ -1991,13 +1009,11 @@ footer a {
     line-height: 1.8;
 }
 
-/* Related project link */
 .experience-content a {
     display: inline-block;
     margin-top: 1rem;
     color: #142B3B;
     font-size: 0.9rem;
-    text-decoration: none;
     transition: color 0.2s ease;
 }
 
@@ -2010,22 +1026,7 @@ footer a {
     outline-offset: 4px;
 }
 
-
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
-
 @media (max-width: 700px) {
-    .skills-section,
-    .experiences-section {
-        padding: 3rem 1.25rem;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-        row-gap: 2rem;
-    }
-
     .experience-item {
         grid-template-columns: 1fr;
         row-gap: 0.75rem;
@@ -2040,180 +1041,46 @@ footer a {
         font-size: 1.25rem;
     }
 }
-/* =========================
-   SECTION TITLES & INTRODUCTIONS
-========================= */
-
-:root {
-    --title-intro-spacing: 20px;
-    --intro-content-spacing: 30px;
-}
-
-/* All section titles */
-.section_title {
-    margin: 0 0 var(--title-intro-spacing);
-    padding-left: 14px;
-    border-left: 6px solid var(--blue);
-
-    color: var(--navy);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(1.6rem, 2.6vw, 2rem);
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-/* All section introductions */
-.section-intro {
-    width: 100%;
-    margin: 0 0 var(--intro-content-spacing);
-    padding: 24px 30px;
-    box-sizing: border-box;
-
-    background-color: #FFFFFF;
-    border: 1px solid var(--blue);
-    border-radius: 12px;
-
-    color: var(--blue);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.05rem;
-    font-weight: 400;
-    line-height: 1.6;
-}
 
 
-/* =========================
-   SKILLS — MINIMALIST CARDS
-========================= */
-
-.skills-section {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-    width: 100%;
-    align-items: stretch;
-}
-
-.skill-card {
-    min-width: 0;
-    padding: 24px;
-    background-color: #FFFFFF;
-    border: 1px solid var(--blue);
-    border-radius: 12px;
-    box-sizing: border-box;
-}
-
-.skill-card h3 {
-    margin: 0 0 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--mist);
-
-    color: var(--navy);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.4;
-}
-
-/* Reuse the same bubbles as Projects */
-.skill-card .project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 8px;
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.skill-card .project-technologies li {
-    padding: 5px 10px;
-    background-color: var(--cream);
-    border: 1px solid var(--mist);
-    border-radius: 20px;
-
-    color: var(--navy);
-    font-size: 0.8rem;
-    line-height: 1.5;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .skill-card {
-        padding: 20px;
-    }
-}
-.about-section,
-.journey-section,
-.projects-section,
-.skills-section,
-.experiences-section {
-    margin-top: 60px;
-    padding-top: 0;
-}
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-    width: 100%;
-    align-items: stretch;
-}
-
-/* Technical Skills takes the full width */
-.skill-card--technical {
-    grid-column: 1 / -1;
-}
-
-/* Responsive layout */
-@media (max-width: 700px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .skill-card--technical {
-        grid-column: auto;
-    }
-}
-/* =========================
-   LET'S WORK TOGETHER
-========================= */
+/* ==========================================================
+   11. CONTACT
+========================================================== */
 
 .contact {
+    grid-column: 1 / -1;
+    margin-top: 15px;
+    padding: 40px;
     background-color: var(--navy);
     color: #FFFFFF;
+    text-align: center;
     border: 1px solid var(--navy);
     border-radius: 12px;
-    padding: 40px;
-    text-align: center;
 }
 
-.contact h2,
-.contact p {
+.contact h2 {
+    margin: 0 0 8px;
     color: #FFFFFF;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.contact p {
+    margin: 0 0 22px;
+    color: #FFFFFF;
+    font-weight: 500;
 }
 
 .contact a {
     display: inline-block;
-    color: var(--navy);
+    margin: 5px;
+    padding: 8px 18px;
     background-color: #FFFFFF;
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: 400;
     border: 1px solid #FFFFFF;
     border-radius: 20px;
-    padding: 8px 18px;
-    margin: 5px;
-    text-decoration: none;
 }
 
 .contact a:hover {
@@ -2226,82 +1093,253 @@ footer a {
         padding: 30px 20px;
     }
 }
-/* Reserve the same space for technology bubbles in every project */
-.project-content > .project-technologies {
-    min-height: 5rem;
-    align-content: flex-start;
+
+
+/* ==========================================================
+   12. PIED DE PAGE
+========================================================== */
+
+footer {
+    width: 100%;
+    margin: auto 0 0;
+    padding-bottom: 24px;
     box-sizing: border-box;
+    background-color: transparent;
+    color: var(--navy);
+    text-align: center;
 }
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer a {
+    color: var(--blue);
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    color: var(--navy);
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 10px 0 0;
+    color: var(--navy);
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================
+   13. SURVOL COMMUN DES CARTES
+   (une seule source pour toutes les cartes classiques)
+========================================================== */
+
+/* Cartes avec changement de bordure */
+.project-card,
+.skill-card,
+.project-item {
+    border: 1px solid var(--mist);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within,
+.skill-card:hover,
+.skill-card:focus-within,
+.project-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--steel);
+    box-shadow: 0 10px 26px -14px rgba(20, 43, 59, 0.35);
+}
+
+/* Autres cartes (page skills, anciennes cartes) */
+.skills-card,
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-card:hover,
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Formulaire de la page contact : pas de déplacement */
+#contact-form {
+    transition: box-shadow 0.4s ease;
+}
+
+#contact-form:hover,
+#contact-form:focus-within {
+    box-shadow: var(--hover-shadow);
+}
+
+
+/* ==========================================================
+   14. ANCIEN DESIGN
+   Classes absentes de index.html et skills.html : vérifie
+   pages/projects.html et contact_me.html, puis supprime
+   ce bloc s'il n'est plus utilisé.
+========================================================== */
+
+.more {
+    grid-column: 1 / -1;
+    margin: -8px 0 0;
+    text-align: right;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+}
+
+.card h3 {
+    margin: 0;
+    padding: 12px;
+    background-color: var(--navy);
+    color: #FFFFFF;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    text-align: center;
+    border-bottom: 2px solid var(--blue);
+}
+
+.card p {
+    margin: 0;
+    padding: 18px;
+    color: var(--blue);
+    font-weight: 500;
+    text-align: center;
+}
+
+.card span {
+    display: block;
+    margin-top: 12px;
+    color: var(--blue);
+    font-size: 0.9rem;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.project-item > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-item img,
+.project-item video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.project-item p {
+    overflow-wrap: anywhere;
+}
+
+.project-subtitle {
+    margin: 0 0 22px;
+    padding-bottom: 14px;
+    color: var(--navy);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.35;
+    border-bottom: 2px solid var(--blue);
+}
+
+@media (max-width: 600px) {
+    .project-item {
+        padding: 20px;
+    }
+
+    .project-subtitle {
+        margin-bottom: 16px;
+        font-size: 1.15rem;
+    }
+}
+
+
+/* ==========================================================
+   15. MODE SOMBRE
+   Règles d'origine conservées à l'identique et dans le même
+   ordre, pour garder exactement le même rendu qu'avant.
+========================================================== */
+
+/* =========================
+   DARK MODE VARIABLES
+========================= */
+
+.dark_mode {
+    --page-bg: #0E1A24;
+    --surface: #16262F;
+    --surface-alt: #1D3340;
+    --text: #E6EEF2;
+    --muted-text: #A9BDC8;
+    --accent: #7FB8C4;
+    --border: #2C4A5A;
+
+    --navy: #E6EEF2;
+    --blue: #7FB8C4;
+    --cream: #1D3340;
+    --mist: #2C4A5A;
+    --steel: #6F8A98;
+    --light-blue: #7FB8C4;
+}
+
+/* =========================
+   GENERAL DARK MODE
+========================= */
+
+.dark_mode .main_card,
+.dark_mode .skills,
+.dark_mode .card,
+.dark_mode .section-intro,
+.dark_mode .project-card,
+.dark_mode .skill-card,
+.dark_mode .project-item {
+    background-color: var(--surface);
+    border-color: var(--border);
+}
+
 html.dark_mode,
 body.dark_mode,
 .dark_mode body {
     background-color: #0E1A24 !important;
     color: #E6EEF2 !important;
 }
-/* ===== Mode sombre : retouches ===== */
 
-/* Bouton "View my projects" (et les deux autres boutons du hero) */
-.dark_mode .hero_links a:first-child {
-    background-color: #3E7A8F;
-    border-color: #3E7A8F;
-    color: #FFFFFF;
+/* =========================
+   HEADER & NAVIGATION
+========================= */
+
+.dark_mode header {
+    background-color: #142B3B;
+    border-bottom-color: #2C4A5A;
 }
 
-.dark_mode .hero_links a:first-child:hover {
-    background-color: #5A9BB0;
-    border-color: #5A9BB0;
-    color: #FFFFFF;
-}
-
-.dark_mode .hero_links a:not(:first-child) {
-    background-color: transparent;
-    border-color: #7FB8C4;
-    color: #FFFFFF;
-}
-
-.dark_mode .hero_links a:not(:first-child):hover {
-    background-color: #1D3340;
-    color: #FFFFFF;
-}
-
-/* Phrases d'introduction en blanc */
-.dark_mode .section-intro,
-.dark_mode .section-intro p,
-.dark_mode .section-intro b {
-    color: #FFFFFF;
-}
-
-/* Partie Experiences */
-.dark_mode .experience-content h2,
-.dark_mode .experience-content a {
-    color: #FFFFFF;
-}
-
-.dark_mode .experience-role,
-.dark_mode .experience-content > p:not(.experience-role) {
-    color: #F2F6F8;
-}
-
-.dark_mode .experience-date {
-    color: #C3D3DB;
-}
-
-.dark_mode .experience-content a:hover {
-    color: #7FB8C4;
-}
-
-/* "Let's work together" plus clair */
-.dark_mode .contact {
-    background-color: #24465A;
-    border-color: #3E6A82;
-}
-
-.dark_mode .contact h2,
-.dark_mode .contact p {
-    color: #FFFFFF;
-}
-
-/* Menu plus clair */
 .dark_mode header {
     background-color: #1F4258;
     border-bottom-color: #7FB8C4;
@@ -2317,34 +1355,28 @@ body.dark_mode,
     border-bottom-color: #A6CFD5;
 }
 
-.dark_mode #btn_lum,
-.dark_mode #btn_lang {
-    background-color: #1F4258;
-    color: #FFFFFF;
-    border-color: #7FB8C4;
-}
-/* ===== Mode sombre : menu plus clair et plus coloré ===== */
-
 .dark_mode header {
-    background: linear-gradient(90deg, #2F6A86 0%, #3E86A3 50%, #2F6A86 100%);
+    background: linear-gradient(
+        90deg,
+        #2F6A86 0%,
+        #3E86A3 50%,
+        #2F6A86 100%
+    );
     border-bottom: 3px solid #CFE8EE;
 }
 
-/* Liens du menu */
 .dark_mode header nav a {
     color: #FFFFFF;
     background-color: transparent;
     border-bottom: 2px solid transparent;
 }
 
-/* Survol : pastille claire */
 .dark_mode header nav a:hover {
     background-color: rgba(255, 255, 255, 0.18);
     color: #FFFFFF;
     border-bottom-color: #CFE8EE;
 }
 
-/* Page active : pastille bien visible */
 .dark_mode header nav a.active {
     background-color: #CFE8EE;
     color: #14303F;
@@ -2352,6 +1384,7 @@ body.dark_mode,
 }
 
 /* Boutons langue et thème */
+
 .dark_mode #btn_lum,
 .dark_mode #btn_lang {
     background-color: #CFE8EE;
@@ -2365,76 +1398,7 @@ body.dark_mode,
     border-color: #CFE8EE;
 }
 
-
-/* Variation de couleurs pour ne pas avoir des bulles toutes identiques */
-.dark_mode .project-technologies li:nth-child(4n+2) {
-    background-color: #F3DBB9;   /* sable */
-    border-color: #F8E8D0;
-}
-
-.dark_mode .project-technologies li:nth-child(4n+3) {
-    background-color: #B8D8B0;   /* vert doux */
-    border-color: #D2E8CC;
-}
-
-.dark_mode .project-technologies li:nth-child(4n+4) {
-    background-color: #C9BDE8;   /* lavande */
-    border-color: #DDD4F2;
-}
-
-.dark_mode .project-technologies li:hover {
-    transform: translateY(-2px);
-}
-
-/* ===== Mode sombre : "Let's work together" ===== */
-
-.dark_mode .contact a {
-    background-color: #CFE8EE;
-    border-color: #CFE8EE;
-    color: #14303F;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-/* Survol : sable chaud, texte foncé pour rester lisible */
-.dark_mode .contact a:hover {
-    background-color: #F3DBB9;
-    border-color: #F3DBB9;
-    color: #14303F;
-    transform: translateY(-2px);
-}
-/* ===== Mode sombre : bulles uniformes, touche de blanc ===== */
-
-.dark_mode .project-technologies li {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    color: #FFFFFF;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.dark_mode .project-technologies li:hover {
-    background-color: rgba(255, 255, 255, 0.18);
-    border-color: #FFFFFF;
-}
-
-/* ===== Mode sombre : "Let's work together" ===== */
-
-.dark_mode .contact a {
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    color: #FFFFFF;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Survol : fond blanc, texte foncé */
-.dark_mode .contact a:hover {
-    background-color: #FFFFFF;
-    border-color: #FFFFFF;
-    color: #14303F;
-}
-
-/* =================================
-   MODE NUIT — MENU
-================================= */
+/* Menu mode nuit */
 
 body.dark_mode header {
     background: #244653;
@@ -2460,7 +1424,6 @@ body.dark_mode header nav a.active {
     border-bottom-color: #D7E9E8;
 }
 
-/* Boutons de langue et de thème */
 body.dark_mode #btn_lum,
 body.dark_mode #btn_lang {
     background-color: #D7E9E8;
@@ -2474,94 +1437,87 @@ body.dark_mode #btn_lang:hover {
     border-color: #FFFFFF;
 }
 
+/* =========================
+   HERO & BUTTONS
+========================= */
 
-/* =================================
-   MODE NUIT — BULLES SKILLS / PROJECTS
-================================= */
-
-/* Couleur principale : menthe */
-body.dark_mode .project-card .project-technologies li,
-body.dark_mode .skill-card .project-technologies li {
-    background-color: #D7E9E8;
-    border: 1px solid #B8D5D4;
-    color: #17313D;
-}
-
-/* Alternance de couleurs pastel */
-body.dark_mode .project-card .project-technologies li:nth-child(4n + 2),
-body.dark_mode .skill-card .project-technologies li:nth-child(4n + 2) {
-    background-color: #F3E4CF;
-    border-color: #E6D1B5;
-}
-
-body.dark_mode .project-card .project-technologies li:nth-child(4n + 3),
-body.dark_mode .skill-card .project-technologies li:nth-child(4n + 3) {
-    background-color: #DCD5ED;
-    border-color: #C9BDE0;
-}
-
-body.dark_mode .project-card .project-technologies li:nth-child(4n + 4),
-body.dark_mode .skill-card .project-technologies li:nth-child(4n + 4) {
-    background-color: #E5E9D8;
-    border-color: #D1D9BE;
-}
-
-body.dark_mode .project-card .project-technologies li:hover,
-body.dark_mode .skill-card .project-technologies li:hover {
-    filter: brightness(0.96);
-    transform: translateY(-2px);
-}
-
-
-/* =================================
-   MODE NUIT — LET'S WORK TOGETHER
-================================= */
-
-body.dark_mode .contact {
-    background-color: #31576B;
-    border: 1px solid #52798A;
-    border-radius: 12px;
-}
-
-body.dark_mode .contact h2,
-body.dark_mode .contact p {
+.dark_mode .hero_links a:first-child {
+    background-color: #3E7A8F;
+    border-color: #3E7A8F;
     color: #FFFFFF;
 }
 
-/* Boutons GitHub, LinkedIn et autres liens */
-body.dark_mode .contact a {
-    background-color: #FFFFFF;
-    color: #17313D;
-    border: 1px solid #FFFFFF;
-    border-radius: 20px;
+.dark_mode .hero_links a:first-child:hover {
+    background-color: #5A9BB0;
+    border-color: #5A9BB0;
+    color: #FFFFFF;
+}
+
+.dark_mode .hero_links a:not(:first-child) {
+    background-color: transparent;
+    border-color: #7FB8C4;
+    color: #FFFFFF;
+}
+
+.dark_mode .hero_links a:not(:first-child):hover {
+    background-color: #1D3340;
+    color: #FFFFFF;
+}
+
+/* =========================
+   INTRODUCTIONS
+========================= */
+
+.dark_mode .section-intro,
+.dark_mode .section-intro p,
+.dark_mode .section-intro b {
+    color: #FFFFFF;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.dark_mode .project-card h3 {
+    color: var(--text);
+}
+
+.dark_mode .project-description,
+.dark_mode .project-role {
+    color: var(--muted-text);
+}
+
+/* Project technology bubbles */
+
+.dark_mode .project-technologies li:nth-child(4n+2) {
+    background-color: #F3DBB9;
+    border-color: #F8E8D0;
+}
+
+.dark_mode .project-technologies li:nth-child(4n+3) {
+    background-color: #B8D8B0;
+    border-color: #D2E8CC;
+}
+
+.dark_mode .project-technologies li:nth-child(4n+4) {
+    background-color: #C9BDE8;
+    border-color: #DDD4F2;
+}
+
+.dark_mode .project-technologies li {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #FFFFFF;
     transition: background-color 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
+                border-color 0.2s ease;
 }
 
-body.dark_mode .contact a:hover {
-    background-color: #D7E9E8;
-    border-color: #D7E9E8;
-    color: #17313D;
-    transform: translateY(-2px);
-}
-/* MODE NUIT — BULLES SKILLS ET PROJECTS */
-body.dark_mode .project-card .project-technologies li,
-body.dark_mode .skill-card .project-technologies li {
-    background-color: #D7E9E8;
-    color: #17313D;
-    border: 1px solid #B8D5D4;
+.dark_mode .project-technologies li:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: #FFFFFF;
 }
 
-body.dark_mode .project-card .project-technologies li:hover,
-body.dark_mode .skill-card .project-technologies li:hover {
-    background-color: #C5DEDD;
-    color: #17313D;
-    transform: translateY(-2px);
-}
-/* ========================================
-   MODE NUIT — BULLES PROJECTS
-======================================== */
+/* Project bubbles - final overrides */
 
 body.dark_mode .project-card .project-technologies li {
     background-color: #1B3445 !important;
@@ -2578,8 +1534,30 @@ body.dark_mode .project-card .project-technologies li:hover {
     transform: translateY(-2px);
 }
 
+/* =========================
+   SKILLS
+========================= */
 
-/* MODE NUIT — BULLES SKILLS UNIQUEMENT */
+.dark_mode .skill-card h3 {
+    color: var(--text);
+}
+
+/* Skills bubbles */
+
+body.dark_mode .project-card .project-technologies li,
+body.dark_mode .skill-card .project-technologies li {
+    background-color: #D7E9E8;
+    color: #17313D;
+    border: 1px solid #B8D5D4;
+}
+
+body.dark_mode .project-card .project-technologies li:hover,
+body.dark_mode .skill-card .project-technologies li:hover {
+    background-color: #C5DEDD;
+    color: #17313D;
+    transform: translateY(-2px);
+}
+
 body.dark_mode .skills-section .skill-card .project-technologies li {
     background-color: #294C60 !important;
     color: #F8F6F1 !important;
@@ -2591,14 +1569,190 @@ body.dark_mode .skills-section .skill-card .project-technologies li:hover {
     border-color: #A6CFD5 !important;
 }
 
+/* =========================
+   EXPERIENCES
+========================= */
+
+.dark_mode .experience-content h2,
+.dark_mode .experience-content a {
+    color: #FFFFFF;
+}
+
+.dark_mode .experience-role,
+.dark_mode .experience-content > p:not(.experience-role) {
+    color: #F2F6F8;
+}
+
+.dark_mode .experience-date {
+    color: #C3D3DB;
+}
+
+.dark_mode .experience-content a:hover {
+    color: #7FB8C4;
+}
 
 body.dark_mode .experience-date {
     color: #A6CFD5 !important;
 }
+
 body.dark_mode .experience-item {
     border-top-color: #42677D !important;
 }
-#btn_lum {
-    cursor: pointer;
-    font-size: 24px;
+
+/* =========================
+   CONTACT
+========================= */
+
+.dark_mode .contact {
+    background-color: #142B3B;
+    border-color: #2C4A5A;
 }
+
+.dark_mode .contact a {
+    background-color: #E6EEF2;
+    color: #0E1A24;
+}
+
+.dark_mode .contact {
+    background-color: #24465A;
+    border-color: #3E6A82;
+}
+
+.dark_mode .contact h2,
+.dark_mode .contact p {
+    color: #FFFFFF;
+}
+
+body.dark_mode .contact {
+    background-color: #31576B;
+    border: 1px solid #52798A;
+    border-radius: 12px;
+}
+
+body.dark_mode .contact h2,
+body.dark_mode .contact p {
+    color: #FFFFFF;
+}
+
+body.dark_mode .contact a {
+    background-color: #FFFFFF;
+    color: #17313D;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+body.dark_mode .contact a:hover {
+    background-color: #D7E9E8;
+    border-color: #D7E9E8;
+    color: #17313D;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   SKILLS MORE BUTTON
+========================= */
+
+body.dark_mode .skills-more-link {
+    background-color: #D7E9E8;
+    border-color: #D7E9E8;
+    color: #17313D;
+}
+
+body.dark_mode .skills-more-link:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #17313D;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.dark_mode .skills-more-link:focus-visible {
+    outline-color: #A6CFD5;
+}
+
+/* =========================
+   CARDS HOVER
+========================= */
+
+html.dark_mode,
+body.dark_mode {
+    --hover-shadow:
+        0 0 0 1px rgba(127, 184, 196, 0.38),
+        0 10px 26px -14px rgba(0, 0, 0, 0.60);
+}
+
+body.dark_mode .project-card:hover,
+body.dark_mode .skill-card:hover,
+body.dark_mode .skills-card:hover,
+body.dark_mode .project-item:hover {
+    box-shadow:
+        0 0 0 2px var(--blue),
+        0 14px 34px -18px rgba(0, 0, 0, 0.9);
+}
+
+body.dark_mode .project-card:hover {
+    border-color: var(--border);
+}
+
+body.dark_mode .project-card,
+body.dark_mode .skill-card,
+body.dark_mode .project-item {
+    border-color: #294C60;
+}
+
+body.dark_mode .project-card:hover,
+body.dark_mode .skill-card:hover,
+body.dark_mode .project-item:hover {
+    transform: translateY(-4px);
+    border-color: #42677D;
+    box-shadow: 0 10px 26px -14px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   ACCORDION GALLERY
+========================= */
+
+body.dark_mode .ag-panel {
+    border: 1px solid rgba(166, 207, 213, 0.18);
+}
+
+
+
+/* ==========================================================
+   16. RÉDUCTION DES ANIMATIONS
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within,
+    .skill-card:hover,
+    .skill-card:focus-within,
+    .skills-card:hover,
+    .project-item:hover,
+    .card:hover,
+    .skills-more-link:hover,
+    .project-card:hover .project-more__icon,
+    .project-link:hover span,
+    #btn_lum:hover,
+    #btn_lang:hover,
+    .dark_mode .project-card .project-technologies li:hover,
+    .dark_mode .skills-section .skill-card .project-technologies li:hover,
+    .dark_mode .contact a:hover {
+        transform: none !important;
+    }
+
+    .accordion-gallery .ag-panel--active,
+    .accordion-gallery .ag-panel:focus-visible {
+        translate: 0 0;
+    }
+}
+

@@ -4,6 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Ryme Yacoubi, IT engineering student: projects, skills, journey and experiences." data-i18n-attr="content:metaDescription">
+    <script>
+        try {
+            if (localStorage.getItem("theme") === "dark") {
+                document.documentElement.classList.add("dark_mode");
+            }
+        } catch (e) {}
+    </script>
+    <link rel="canonical" href="https://TON-DOMAINE/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ryme Yacoubi — IT Engineering Student Portfolio">
+<meta property="og:description" content="Projects, skills, journey and experiences of Ryme Yacoubi, IT engineering student.">
+<meta property="og:url" content="https://TON-DOMAINE/">
+<meta property="og:image" content="https://TON-DOMAINE/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ryme Yacoubi",
+  "jobTitle": "IT Engineering Student",
+  "url": "https://TON-DOMAINE/",
+  "sameAs": [
+    "https://github.com/TON-PROFIL",
+    "https://www.linkedin.com/in/TON-PROFIL"
+  ]
+}
+</script>
     <link rel="stylesheet" href="index.css">
     
     <title data-i18n="pageTitle">Portfolio - Ryme Yacoubi</title>
@@ -45,7 +74,7 @@
                         and challenging myself.
                     </p>
                     <div class="hero_links">
-                        <a href="pages/projects.html" data-i18n="heroProjectsLink">View my projects</a>
+                        <a href="#projects" data-i18n="heroProjectsLink">View my projects</a>
                         <a href="Ryme_Yacoubi_CV_EN.pdf" download data-i18n="heroCvEn">CV in English</a>
                         <a href="Ryme_Yacoubi_CV_FR.pdf" download data-i18n="heroCvFr">CV en français</a>
                     </div>
@@ -89,55 +118,71 @@
         <article class="project-card">
             <div class="project-number" aria-hidden="true">01</div>
 
-            <div class="project-content">
+            <p class="project-category" data-i18n="p1Category">
+                Professional Experience · Summer Internship
+            </p>
 
-                <p class="project-category" data-i18n="p1Category">
-                    Professional Experience · Summer Internship
-                </p>
+            <h3 data-i18n="p1Title">Nearshore Management Platform</h3>
 
-                <h3 data-i18n="p1Title">Nearshore Management Platform</h3>
+            <button class="project-more" type="button" aria-haspopup="dialog">
+                <span data-i18n="moreDetails">More details</span>
+                <span class="project-more__icon" aria-hidden="true">+</span>
+            </button>
 
-                <p class="project-description" data-i18n="p1Desc">
-                    A platform designed to centralize Nearshore staffing requests,
-                    match IT profiles to business needs, and monitor resource
-                    allocation through KPI dashboards.
-                </p>
+            <dialog class="project-modal" aria-labelledby="project-1-title">
+                <button class="project-modal__close" type="button"
+                        aria-label="Close" data-i18n-attr="aria-label:closeLabel">×</button>
 
-                <p class="project-role">
-                    <strong data-i18n="labelContext">Context:</strong>
-                    <span data-i18n="p1Context">Summer internship during my second year of engineering
-                    studies.</span>
-                </p>
+                <div class="project-modal__inner">
+                    <p class="project-category" data-i18n="p1Category">
+                        Professional Experience · Summer Internship
+                    </p>
 
-                <p class="project-role">
-                    <strong data-i18n="labelObjective">Objective:</strong>
-                    <span data-i18n="p1Objective">Facilitate the management of staffing requests
-                    and improve the visibility of resource allocation
-                    through performance indicators.</span>
-                </p>
+                    <h3 id="project-1-title" data-i18n="p1Title">Nearshore Management Platform</h3>
 
-                <p class="project-role">
-                    <strong data-i18n="labelSkillsDeveloped">Skills developed:</strong>
-                    <span data-i18n="p1Skills">Web application development, dashboard design,
-                    data presentation, and understanding of business needs.</span>
-                </p>
+                    <p class="project-description" data-i18n="p1Desc">
+                        A platform designed to centralize Nearshore staffing requests,
+                        match IT profiles to business needs, and monitor resource
+                        allocation through KPI dashboards.
+                    </p>
 
-                <ul class="project-technologies"
-                    aria-label="Technologies used" data-i18n-attr="aria-label:techAria">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Python</li>
-                    <li>Django</li>
-                </ul>
+                    <p class="project-role">
+                        <strong data-i18n="labelContext">Context:</strong>
+                        <span data-i18n="p1Context">Summer internship during my second year of engineering
+                        studies.</span>
+                    </p>
 
-            </div>
-        <a class="project-link"
-               href="URL_DU_REPO_LIFEMAP"
-               target="_blank"
-               rel="noopener noreferrer">
-                <span data-i18n="viewSource">View source code</span> <span aria-hidden="true">↗</span>
-        </a>
+                    <p class="project-role">
+                        <strong data-i18n="labelObjective">Objective:</strong>
+                        <span data-i18n="p1Objective">Facilitate the management of staffing requests
+                        and improve the visibility of resource allocation
+                        through performance indicators.</span>
+                    </p>
+
+                    <p class="project-role">
+                        <strong data-i18n="labelSkillsDeveloped">Skills developed:</strong>
+                        <span data-i18n="p1Skills">Web application development, dashboard design,
+                        data presentation, and understanding of business needs.</span>
+                    </p>
+
+                    <ul class="project-technologies"
+                        aria-label="Technologies used" data-i18n-attr="aria-label:techAria">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>Django</li>
+                    </ul>
+
+                    <a class="project-link"
+                       href="URL_DU_REPO_NEARSHORE"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span data-i18n="viewSource">View source code</span>
+                        
+                    </a>
+                </div>
+            </dialog>
         </article>
 
 
@@ -145,54 +190,61 @@
         <article class="project-card">
             <div class="project-number" aria-hidden="true">02</div>
 
-            <div class="project-content">
+            <p class="project-category" data-i18n="p2Category">
+                Academic Project · Web Development
+            </p>
 
-                <p class="project-category" data-i18n="p2Category">
-                    Academic Project · Web Development
-                </p>
+            <h3 data-i18n="p2Title">LifeMap EMSI</h3>
 
-                <h3 data-i18n="p2Title">LifeMap EMSI</h3>
+            <button class="project-more" type="button" aria-haspopup="dialog">
+                <span data-i18n="moreDetails">More details</span>
+                <span class="project-more__icon" aria-hidden="true">+</span>
+            </button>
 
-                <p class="project-description" data-i18n="p2Desc">
-                    A website developed as an academic project at EMSI, allowing
-                    me to apply web development concepts and practise organizing
-                    content into a complete website.
-                </p>
+            <dialog class="project-modal" aria-labelledby="project-2-title">
+                <button class="project-modal__close" type="button"
+                        aria-label="Close" data-i18n-attr="aria-label:closeLabel">×</button>
 
-                <p class="project-role">
-                    <strong data-i18n="labelContext">Context:</strong>
-                    <span data-i18n="p2Context">Academic project completed during the second semester
-                    of my second year at EMSI.</span>
-                </p>
+                <div class="project-modal__inner">
+                    <p class="project-category" data-i18n="p2Category">
+                        Academic Project · Web Development
+                    </p>
 
-                <p class="project-role">
-                    <strong data-i18n="labelObjective">Objective:</strong>
-                    <span data-i18n="p2Objective">Apply the web development concepts learned during
-                    my studies through the design and implementation
-                    of a website.</span>
-                </p>
+                    <h3 id="project-2-title" data-i18n="p2Title">LifeMap EMSI</h3>
 
-                <p class="project-role">
-                    <strong data-i18n="labelSkillsDeveloped">Skills developed:</strong>
-                    <span data-i18n="p2Skills">Website structure, interface development, and
-                    application of web development concepts.</span>
-                </p>
+                    <p class="project-description" data-i18n="p2Desc">
+    A website built at EMSI to practise organizing content into a complete site.
+</p>
 
-                <ul class="project-technologies"
-                    aria-label="Technologies used" data-i18n-attr="aria-label:techAria">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    
-                </ul>
+<p class="project-role">
+    <strong data-i18n="labelContext">Context:</strong>
+    <span data-i18n="p2Context">Academic project, second semester of my second year.</span>
+</p>
 
+<p class="project-role">
+    <strong data-i18n="labelObjective">Objective:</strong>
+    <span data-i18n="p2Objective">Apply the web development concepts learned in class.</span>
+</p>
 
-            </div>
-            <a class="project-link"
-               href="URL_DU_REPO_LIFEMAP"
-               target="_blank"
-               rel="noopener noreferrer">
-                <span data-i18n="viewSource">View source code</span> <span aria-hidden="true">↗</span>
-            </a>
+<p class="project-role">
+    <strong data-i18n="labelSkillsDeveloped">Skills developed:</strong>
+    <span data-i18n="p2Skills">Website structure and interface development.</span>
+</p>
+                    <ul class="project-technologies"
+                        aria-label="Technologies used" data-i18n-attr="aria-label:techAria">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+
+                    <a class="project-link"
+                       href="URL_DU_REPO_LIFEMAP"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span data-i18n="viewSource">View source code</span>
+                        
+                    </a>
+                </div>
+            </dialog>
         </article>
 
 
@@ -200,93 +252,101 @@
         <article class="project-card">
             <div class="project-number" aria-hidden="true">03</div>
 
-            <div class="project-content">
+            <p class="project-category" data-i18n="p3Category">
+                Academic Project · Programming
+            </p>
 
-                <p class="project-category" data-i18n="p3Category">
-                    Academic Project · Programming
-                </p>
+            <h3 data-i18n="p3Title">File Management in C</h3>
 
-                <h3 data-i18n="p3Title">File Management in C</h3>
+            <button class="project-more" type="button" aria-haspopup="dialog">
+                <span data-i18n="moreDetails">More details</span>
+                <span class="project-more__icon" aria-hidden="true">+</span>
+            </button>
 
-                <p class="project-description" data-i18n="p3Desc">
-                    A C program developed to manage files, helping me practise
-                    structured programming, file operations, and the organization
-                    of stored information.
-                </p>
+            <dialog class="project-modal" aria-labelledby="project-3-title">
+                <button class="project-modal__close" type="button"
+                        aria-label="Close" data-i18n-attr="aria-label:closeLabel">×</button>
 
-                <p class="project-role">
-                    <strong data-i18n="labelContext">Context:</strong>
-                    <span data-i18n="p3Context">Academic programming project.</span>
-                </p>
+                <div class="project-modal__inner">
+                    <p class="project-category" data-i18n="p3Category">
+                        Academic Project · Programming
+                    </p>
 
-                <p class="project-role">
-                    <strong data-i18n="labelObjective">Objective:</strong>
-                    <span data-i18n="p3Objective">Develop a file management program and practise
-                    the use of C for handling stored information.</span>
-                </p>
+                    <h3 id="project-3-title" data-i18n="p3Title">File Management in C</h3>
 
-                <p class="project-role">
-                    <strong data-i18n="labelSkillsDeveloped">Skills developed:</strong>
-                    <span data-i18n="p3Skills">Structured programming, logical reasoning,
-                    file handling, and problem-solving.</span>
-                </p>
+                    <p class="project-description" data-i18n="p3Desc">
+                        A C program developed to manage files, helping me practise
+                        structured programming, file operations, and the organization
+                        of stored information.
+                    </p>
 
-                <ul class="project-technologies"
-                    aria-label="Technologies and concepts used" data-i18n-attr="aria-label:techConceptsAria">
-                    <li>C</li>
-                    <li data-i18n="techFileHandling">File Handling</li>
-                    <li data-i18n="techAlgorithms">Algorithms</li>
-                </ul>
+                    <p class="project-role">
+                        <strong data-i18n="labelContext">Context:</strong>
+                        <span data-i18n="p3Context">Academic programming project.</span>
+                    </p>
 
-            </div>
-            <a class="project-link"
-               href="URL_DU_REPO_C"
-               target="_blank"
-               rel="noopener noreferrer">
-                <span data-i18n="viewSource">View source code</span> <span aria-hidden="true">↗</span>
-            </a>
-            
+                    <p class="project-role">
+                        <strong data-i18n="labelObjective">Objective:</strong>
+                        <span data-i18n="p3Objective">Develop a file management program and practise
+                        the use of C for handling stored information.</span>
+                    </p>
+
+                    <p class="project-role">
+                        <strong data-i18n="labelSkillsDeveloped">Skills developed:</strong>
+                        <span data-i18n="p3Skills">Structured programming, logical reasoning,
+                        file handling, and problem-solving.</span>
+                    </p>
+
+                    <ul class="project-technologies"
+                        aria-label="Technologies and concepts used" data-i18n-attr="aria-label:techConceptsAria">
+                        <li>C</li>
+                        <li data-i18n="techFileHandling">File Handling</li>
+                        <li data-i18n="techAlgorithms">Algorithms</li>
+                    </ul>
+
+                    <a class="project-link"
+                       href="URL_DU_REPO_C"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span data-i18n="viewSource">View source code</span>
+                    
+                    </a>
+                </div>
+            </dialog>
         </article>
 
     </div>
 </section>
 
-<section class="skills-section" id="skills"
-         aria-labelledby="skills-title">
+    
+<section class="skills-section" id="skills" aria-labelledby="skills-title">
 
-    <h2 class="section_title" id="skills-title" data-i18n="skillsTitle">My Skills</h2>
-
+    <h2 class="section_title" id="skills-title" data-i18n="skillsTitle">
+        My Skills
+    </h2>
 
 
     <div class="skills-grid">
 
-        <!-- Technical Skills -->
         <article class="skill-card skill-card--technical">
             <h3 data-i18n="technicalSkillsTitle">Technical Skills</h3>
 
-            <ul class="project-technologies"
-                aria-label="Technical skills" data-i18n-attr="aria-label:technicalSkillsAria">
+            <ul class="project-technologies">
                 <li>HTML</li>
                 <li>CSS</li>
                 <li>JavaScript</li>
                 <li>React</li>
-                <li>C</li>
                 <li>Python</li>
-                <li>php</li>
+                <li>C</li>
                 <li>SQL</li>
-                <li>MERISE</li>
                 <li>Django</li>
-                <li>GRAFCET</li>
-                <li>GEMMA</li>
             </ul>
         </article>
 
-        <!-- Soft Skills -->
         <article class="skill-card">
             <h3 data-i18n="softSkillsTitle">Soft Skills</h3>
 
-            <ul class="project-technologies"
-                aria-label="Personal and professional skills" data-i18n-attr="aria-label:softSkillsAria">
+            <ul class="project-technologies">
                 <li data-i18n="softSelfLearning">Self-learning</li>
                 <li data-i18n="softConsistency">Consistency</li>
                 <li data-i18n="softProblemSolving">Problem-solving</li>
@@ -295,20 +355,29 @@
                 <li data-i18n="softPerseverance">Perseverance</li>
             </ul>
         </article>
-        <!-- Languages -->
-<article class="skill-card">
-    <h3 data-i18n="languagesTitle">Languages</h3>
 
-    <ul class="project-technologies" aria-label="Languages and proficiency levels" data-i18n-attr="aria-label:languagesAria">
-        <li data-i18n="langArabic">Arabic - native</li>
-        <li data-i18n="langFrench">French - B2</li>
-        <li data-i18n="langEnglish">English - B2</li>
-    </ul>
-</article>
+        <article class="skill-card">
+            <h3 data-i18n="languagesTitle">Languages</h3>
+
+            <ul class="project-technologies">
+                <li data-i18n="langArabic">Arabic - Native</li>
+                <li data-i18n="langFrench">French - B2</li>
+                <li data-i18n="langEnglish">English - B2</li>
+            </ul>
+        </article>
 
     </div>
 
+    <div class="skills-more">
+        <a href="skills/skills.html"
+           class="skills-more-link"
+           data-i18n="skillsSeeMore">
+            Explore more about my skills 
+        </a>
+    </div>
+
 </section>
+
 
 
 
@@ -336,8 +405,8 @@
                     </p>
 
                     <a href="#projects">
-                        <span data-i18n="exp1Link">Discover the related project</span>
-                        <span aria-hidden="true">↗</span>
+                        <a href="#projects" data-i18n="exp1Link">Discover the related project</a>
+                       
                     </a>
                 </div>
             </article>
@@ -374,15 +443,8 @@
 
 
     </main>
-
-    <footer>
-        
-
-            
-       
-        <p data-i18n="footerText">© 2026 Ryme Yacoubi. Photos and fonts: credits on the About page.</p>
-    </footer>
     <script src="translations.js"></script>
+    <script src="project_modal.js"></script>
     <script type="module" src="themes.js"></script>
     <script type="module" src="/src/connexion_journey.jsx"></script>
     <script type="module" src="/src/main.jsx"></script>
