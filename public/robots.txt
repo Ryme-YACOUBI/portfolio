@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-five-beta-q4ml5sfvny.vercel.app/sitemap.xml
