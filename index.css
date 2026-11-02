@@ -297,10 +297,7 @@ header nav a.active {
 }
 
 
-body.menu_fixed section[id],
-body.menu_fixed #contact {
-    scroll-margin-top: 80px;
-}
+
 /* Menu des pages secondaires (skills, contact) */
 header nav.skills-nav {
     justify-content: space-between;
@@ -334,11 +331,98 @@ header nav a.back-home:hover {
         padding: 10px 16px;
     }
 }
-/* Le menu étant toujours fixe, on décale les ancres sous lui */
-section[id],
-#contact {
-    scroll-margin-top: 80px;
+header {
+    position: static;   /* téléphone et tablette : le menu défile avec la page */
+    z-index: 1000;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    background: #142B3B;
+    border-bottom: 3px solid #A6CFD5;
 }
+
+/* Bouton hamburger : caché sur ordinateur */
+#btn_burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    background-color: var(--navy);
+    color: var(--cream);
+    font-size: 22px;
+    border: 1px solid var(--steel);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#btn_burger:focus-visible {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 3px;
+}
+
+body.dark_mode #btn_burger {
+    background-color: #D7E9E8;
+    color: #17313D;
+    border-color: #D7E9E8;
+}
+
+/* Ordinateur : menu fixe */
+@media (min-width: 1025px) {
+    header {
+        position: sticky;
+        top: 0;
+    }
+
+    section[id],
+    #contact {
+        scroll-margin-top: 80px;
+    }
+}
+
+/* Autres appareils : hamburger */
+@media (max-width: 1024px) {
+    header nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 8px 16px;
+        box-sizing: border-box;
+    }
+
+    #btn_burger {
+        display: flex;
+        order: 1;
+    }
+
+    .nav_controls {
+        order: 2;
+        margin: 0;
+    }
+
+    header nav ul {
+        display: none;          /* fermé par défaut */
+        order: 3;
+        flex: none;
+        width: 100%;
+        flex-direction: column; /* un lien par ligne */
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0 4px;
+    }
+
+    header nav ul.open {
+        display: flex;          /* s'ouvre au clic */
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 12px;
+        border-bottom: 1px solid rgba(166, 207, 213, 0.25);
+        border-radius: 0;
+    }
+}
+
 
 /* ==========================================================
    5. HERO
@@ -455,10 +539,6 @@ section[id],
    6. SECTIONS : ESPACEMENT, TITRES, INTRODUCTIONS
 ========================================================== */
 
-body.menu_fixed section[id],
-body.menu_fixed #contact {
-    scroll-margin-top: 80px;
-}
 
 .about-section,
 .journey-section,
@@ -1118,6 +1198,25 @@ html.modal-open {
     }
 }
 
+.contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px;
+    padding: 8px 18px;
+    background-color: #FFFFFF;
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+}
+
+.contact a .icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
 
 /* ==========================================================
    12. PIED DE PAGE
