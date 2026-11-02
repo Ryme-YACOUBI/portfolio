@@ -321,7 +321,7 @@ const translations = {
         applyTranslations(document);
         updateLanguageButton();
 
-        /* Prévient les composants React (voir src/useLanguage.js). */
+        /* Prévient les composants React (voir src/main.jsx et src/connexion_journey.jsx). */
         document.dispatchEvent(new CustomEvent("i18n:change", { detail: { lang: lang } }));
     }
 

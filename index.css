@@ -188,6 +188,9 @@ footer a:focus-visible,
 ========================================================== */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     width: 100%;
     margin: 0;
     box-sizing: border-box;
@@ -232,8 +235,7 @@ header nav a.active {
     color: var(--light-blue);
     border-bottom-color: var(--light-blue);
 }
-
-/* Boutons langue et thème */
+/* Boutons langue, épingle et thème */
 .nav_controls {
     display: flex;
     align-items: center;
@@ -243,7 +245,8 @@ header nav a.active {
 }
 
 #btn_lum,
-#btn_lang {
+#btn_lang
+{
     border: 1px solid var(--steel);
     background-color: var(--navy);
     color: var(--cream);
@@ -253,7 +256,8 @@ header nav a.active {
                 transform 0.2s ease;
 }
 
-#btn_lum {
+#btn_lum
+{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,8 +265,12 @@ header nav a.active {
     height: 38px;
     padding: 0;
     border-radius: 50%;
+}
+
+#btn_lum {
     font-size: 24px;
 }
+
 
 #btn_lang {
     min-width: 44px;
@@ -274,18 +282,25 @@ header nav a.active {
 }
 
 #btn_lum:hover,
-#btn_lang:hover {
+#btn_lang:hover
+{
     background-color: var(--blue);
     border-color: var(--light-blue);
     transform: translateY(-2px);
 }
 
 #btn_lum:focus-visible,
-#btn_lang:focus-visible {
+#btn_lang:focus-visible
+{
     outline: 2px solid var(--light-blue);
     outline-offset: 3px;
 }
 
+
+body.menu_fixed section[id],
+body.menu_fixed #contact {
+    scroll-margin-top: 80px;
+}
 /* Menu des pages secondaires (skills, contact) */
 header nav.skills-nav {
     justify-content: space-between;
@@ -319,7 +334,11 @@ header nav a.back-home:hover {
         padding: 10px 16px;
     }
 }
-
+/* Le menu étant toujours fixe, on décale les ancres sous lui */
+section[id],
+#contact {
+    scroll-margin-top: 80px;
+}
 
 /* ==========================================================
    5. HERO
@@ -435,6 +454,11 @@ header nav a.back-home:hover {
 /* ==========================================================
    6. SECTIONS : ESPACEMENT, TITRES, INTRODUCTIONS
 ========================================================== */
+
+body.menu_fixed section[id],
+body.menu_fixed #contact {
+    scroll-margin-top: 80px;
+}
 
 .about-section,
 .journey-section,
