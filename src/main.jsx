@@ -9,6 +9,7 @@ import './App.css';
 
 function AboutCards() {
     const language = useLanguage();
+    // ?? == Default value
     const items = resumeData[language]?.aboutMeItems ?? resumeData.en.aboutMeItems;
 
     return (

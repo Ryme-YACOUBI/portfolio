@@ -312,7 +312,7 @@ const translations = {
             t(target === "fr" ? "langAriaToFr" : "langAriaToEn")
         );
     }
-
+    //local storage of the language
     function setLanguage(lang) {
         if (!translations[lang]) return;
         currentLanguage = lang;
